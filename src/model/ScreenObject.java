@@ -180,6 +180,21 @@ public class ScreenObject {
 	}
 	
 	/**
+	 * Sets the x and y position
+	 * @param positionX	double containing x position
+	 * @param positionY 	double containing y position
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @postcondition 	getX() == positionX rounded to nearest tenth
+	 * 					getY() == positionY rounded to nearest tenth
+	 */
+	public void setCoordinates(double positionX, double positionY) {
+		this.setX(positionX);
+		this.setY(positionY);
+	}
+	
+	/**
 	 * Sets the visibility
 	 * @param visibility	boolean containing visibility
 	 * 
@@ -190,7 +205,22 @@ public class ScreenObject {
 	public void setVisibility(boolean visibility) {
 		this.visible = visibility;
 	}
-
+	
+	/**
+	 * Sets the id
+	 * @param id			String containing the id
+	 * 
+	 * @precondition 	id != nul
+	 * 
+	 * @postcondition 	getID() == id
+	 */
+	public void setID(String id) {
+		if (id == null) {
+			throw new IllegalArgumentException("ScreenObject id cannot be null");
+		}
+		this.id = id;
+	}
+	
 	/**
 	 * Determines if the ScreenObjects are equal by comparing their
 	 * 	coordinates and their visibility
