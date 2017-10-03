@@ -1,5 +1,11 @@
 package controller;
 
+import java.util.ArrayList;
+
+import javafx.stage.Stage;
+import model.ScreenObject;
+import view.MainView;
+
 /**
  * GameController controls the gameplay. It will generate
  * 	the view and process the main flow of the game.
@@ -8,6 +14,22 @@ package controller;
  * @version 10/3/17
  */
 public class GameController {
+	private MainView gameWindow;
+	private ArrayList<ScreenObject> screenObjectList;
+	
+	/**
+	 * Initializes the GameController
+	 * 	and prepares the lists to accept objects.
+	 * @param mainStage	Stage that the program resides on
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @postcondition 	object lists != null
+	 */
+	public GameController(Stage mainStage) {
+		this.screenObjectList = new ArrayList<ScreenObject>();
+		this.gameWindow = new MainView(mainStage);
+	}
 	
 	/**
 	 * This method controls the flow of the game
@@ -17,7 +39,7 @@ public class GameController {
 	 * @postcondition 		none
 	 */
 	public void run() {
-		System.out.println("Hello world!");
+		this.gameWindow.start();
 	}
 
 }

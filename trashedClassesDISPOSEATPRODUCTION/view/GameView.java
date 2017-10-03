@@ -1,5 +1,11 @@
 package view;
 
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
@@ -27,12 +33,24 @@ public class GameView {
 	public GameView() {
 		this.gameWindow = new JFrame(GAME_WINDOW_TITLE);
 		this.gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.gameWindow.setVisible(false);
+		this.gameWindow.setIconImage(new ImageIcon("images/icon.png").getImage());
 		this.gameWindow.setSize(1080, 720);
+		this.gameWindow.setLocationRelativeTo(null);
+		this.gameWindow.setResizable(false);
+	}
+	
+	public void paintComponent(Graphics g) {
+		this.gameWindow.paintComponents(g);
+		
+	}
+	
+	public void drawDonut(Graphics g) {
+		Graphics2D g2d = (Graphics2D) g;
+		g2d.drawRect(100, 100, 100, 100);
 	}
 	
 	/**
-	 * Creats a GameView with the dimentions (width, height)
+	 * Creats a GameView with the dimensions (width, height)
 	 * 	and a window title of {@value #GAME_WINDOW_TITLE}
 	 * @param width 		int with width of the GameView
 	 * @param height		int with height of the GameView
@@ -46,14 +64,13 @@ public class GameView {
 	 * 					GameView DefaultCloseOperation == Exit on close
 	 */
 	public GameView(int width, int height) {
+		this();
 		if (width < 1) {
 			throw new IllegalArgumentException("GameView width cannot be less than 1");
 		}
 		if (height < 1) {
 			throw new IllegalArgumentException("GameView height cannot be less than 1");
 		}
-		this.gameWindow = new JFrame(GAME_WINDOW_TITLE);
-		this.gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.gameWindow.setVisible(false);
 		this.gameWindow.setSize(width, height);
 	}

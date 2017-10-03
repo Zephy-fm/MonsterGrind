@@ -1,6 +1,8 @@
 package driver;
 
 import controller.GameController;
+import javafx.application.Application;
+import javafx.stage.Stage;
 
 /**
  * Driver contains the main() method and runs the GameController
@@ -8,7 +10,7 @@ import controller.GameController;
  *
  * @version 10/3/17
  */
-public class Driver {
+public class Driver extends Application {
 	
 	/**
 	 * First method that is run at the start of the game
@@ -19,7 +21,19 @@ public class Driver {
 	 * @postcondition 	none
 	 */
 	public static void main(String[] args) {
-		GameController controller = new GameController();
+		launch(args);
+	}
+	
+	/**
+	 * Method is called after main() and starts up the controllers
+	 * @param mainStage 	Stage created at program launch
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @postcondition 	none
+	 */
+	public void start(Stage mainStage) {
+		GameController controller = new GameController(mainStage);
 		controller.run();
 	}
 	
