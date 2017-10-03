@@ -1,8 +1,15 @@
 package model;
 
 import java.awt.geom.Point2D;
-import java.util.Map;
 
+/**
+ * ScreenObject is the superclass for all objects that will
+ * 	appear on the screen during the game. It contains details
+ * 	on where the object's coordinates and visibility.
+ * @author frankminyon
+ *
+ * @version 10/2/17
+ */
 public class ScreenObject {
 	private Point2D.Double position;
 	private boolean visible;
