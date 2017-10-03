@@ -194,7 +194,7 @@ public class ScreenObject {
 		return "ScreenObject (master class: Object) ["
 				+ "position: (" + this.getX()
 				+ ", " + this.getY() + "), "
-				+ "visible: " + this.getVisibility() + ", "
+				+ "visible: " + this.getVisibility()
 				+ "]";
 	}
 	
