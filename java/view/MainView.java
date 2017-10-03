@@ -1,9 +1,13 @@
 package view;
 
+import java.io.File;
+
+import javafx.animation.AnimationTimer;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -17,6 +21,8 @@ import javafx.stage.Stage;
  */
 public class MainView {
 	private Stage mainStage;
+	private int width;
+	private int height;
 	
 	/**
 	 * Creates a MainView class and sets the main stage
@@ -29,6 +35,8 @@ public class MainView {
 	 */
 	public MainView(Stage mainStage) {
 		this.mainStage = mainStage;
+		this.width = 1080;
+		this.height = 720;
 	}
 	
 	/**
@@ -40,8 +48,8 @@ public class MainView {
 	 */
 	public void start() {
 		this.mainStage.setTitle("Monster Grind");
-		this.mainStage.setWidth(1080);
-		this.mainStage.setHeight(720);
+		this.mainStage.setWidth(this.width);
+		this.mainStage.setHeight(this.height);
 		this.mainStage.show();
 		System.out.println("Hello world!");
 		
@@ -49,7 +57,7 @@ public class MainView {
 		Scene theScene = new Scene(root);
 		this.mainStage.setScene(theScene);
 		
-		Canvas canvas = new Canvas(400, 200);
+		Canvas canvas = new Canvas(this.width, this.height);
 		root.getChildren().add(canvas);
 		
 		GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -61,10 +69,29 @@ public class MainView {
 		gc.fillText("Hello, World!", 100, 100);
 		gc.strokeText("Hello, World!", 100, 100);
 		
-		//Image icon = new Image("resources/icon.png");
-		//gc.drawImage(icon, 200, 200);
+		final Image icon = new Image(new File("resources/images/icon.png").toURI().toString());
+		gc.drawImage(icon, 200, 200, 100, 100);
 		
+		 
+		final long startNanoTime = System.nanoTime();
+		 
+	    new AnimationTimer()
+	    {
+	        public void handle(long currentNanoTime)
+	        {
+	            double t = (currentNanoTime - startNanoTime) / 1000000000.0; 
+	 
+	            double x = 232 + 128 * Math.cos(t);
+	            double y = 232 + 128 * Math.sin(t);
+	 
+	            // background image clears canvas
+	            gc.drawImage( icon, x, y );
+	        }
+	    }.start();
+	    
 		this.mainStage.show();
 	}
+	
+	
 
 }
