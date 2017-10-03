@@ -190,22 +190,7 @@ public class ScreenObject {
 	public void setVisibility(boolean visibility) {
 		this.visible = visibility;
 	}
-	
-	/**
-	 * Sets the id
-	 * @param id			String containing the id
-	 * 
-	 * @precondition 	id != nul
-	 * 
-	 * @postcondition 	getID() == id
-	 */
-	public void setID(String id) {
-		if (id == null) {
-			throw new IllegalArgumentException("ScreenObject id cannot be null");
-		}
-		this.id = id;
-	}
-	
+
 	/**
 	 * Determines if the ScreenObjects are equal by comparing their
 	 * 	coordinates and their visibility
