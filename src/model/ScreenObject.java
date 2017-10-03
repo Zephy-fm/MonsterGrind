@@ -129,10 +129,11 @@ public class ScreenObject {
 	 * 
 	 * @precondition 	none
 	 * 
-	 * @postcondition 	getX() == positionX
+	 * @postcondition 	getX() == positionX rounded to the nearest tenth
 	 */
 	public void setX(double positionX) {
-		this.position.setLocation(positionX, this.position.getY());
+		double roundedX = Math.round(positionX * 10 / 10);
+		this.position.setLocation(roundedX, this.position.getY());
 	}
 	
 	/**
@@ -141,10 +142,11 @@ public class ScreenObject {
 	 * 
 	 * @precondition 	none
 	 * 
-	 * @postcondition 	getY() == positionY
+	 * @postcondition 	getY() == positionY rounded to the nearest tenth
 	 */
 	public void setY(double positionY) {
-		this.position.setLocation(this.position.getX(), positionY);
+		double roundedY = Math.round(positionY * 10 / 10);
+		this.position.setLocation(this.position.getX(), roundedY);
 	}
 	
 	/**
@@ -162,23 +164,30 @@ public class ScreenObject {
 	/**
 	 * Determines if the ScreenObjects are equal by comparing their
 	 * 	coordinates and their visibility
+	 * @param otherObject 	ScreenObject to compare
+	 * 
+	 * @precondition 		none
+	 * 
+	 * @return 				boolean containing comparison result
 	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
+	public boolean equals(ScreenObject otherObject) {
+		if (this == otherObject) {
 			return true;
-		if (obj == null)
+		}
+		if (otherObject == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (this.getClass() != otherObject.getClass()) {
 			return false;
-		ScreenObject other = (ScreenObject) obj;
-		if (position == null) {
-			if (other.position != null)
-				return false;
-		} else if (!position.equals(other.position))
+		}
+		if (this.position == null && otherObject.position != null) {
 			return false;
-		if (visible != other.visible)
+		} else if (!this.position.equals(otherObject.position)) {
 			return false;
+		}
+		if (this.visible != otherObject.visible) {
+			return false;
+		}
 		return true;
 	}
 
@@ -197,7 +206,5 @@ public class ScreenObject {
 				+ "visible: " + this.getVisibility()
 				+ "]";
 	}
-	
-	
 	
 }
