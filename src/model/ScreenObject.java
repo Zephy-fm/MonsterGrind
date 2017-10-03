@@ -110,13 +110,13 @@ public class ScreenObject {
 	}
 	
 	/**
-	 * Gets the position of the object and returns it
+	 * Gets the coordinates of the object and returns it
 	 * 
 	 * @precondition 	none
 	 * 
-	 * @return			Point2D.Double containing ScreenObject's position
+	 * @return			Point2D.Double containing ScreenObject's coordinates
 	 */
-	public Point2D.Double getPosition() {
+	public Point2D.Double getCoordinates() {
 		return this.position;
 	}
 	
