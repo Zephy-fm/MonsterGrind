@@ -193,7 +193,7 @@ public class ScreenObject {
 	public String toString() {
 		return "ScreenObject (master class: Object) ["
 				+ "position: (" + this.getX()
-				+ "," + this.getY() + "), "
+				+ ", " + this.getY() + "), "
 				+ "visible: " + this.getVisibility() + ", "
 				+ "]";
 	}
