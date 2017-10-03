@@ -36,10 +36,9 @@ public class ScreenObject {
 	}
 	
 	/**
-	 * Default constructor for a ScreenObject.
-	 * 	This constructor will create the ScreenObject and
-	 * 	make the object's position (0, 0) and the visibility
-	 * 	of the object will be false.
+	 * This constructor will create the ScreenObject and
+	 * 	make the object's x position, positionX and the 
+	 *  y position, positionY and the visibility, visible.
 	 * @param positionX 	double containing x position
 	 * @param positionY	double containing y position
 	 * @param visible 	boolean determining if object is visible
@@ -52,6 +51,35 @@ public class ScreenObject {
 	 * 					getID() == UUID
 	 */
 	public ScreenObject(double positionX, double positionY, boolean visible) {
+		this.position = new Point2D.Double();
+		this.setX(positionX);
+		this.setY(positionY);
+		this.visible = visible;
+		this.id = UUID.randomUUID().toString();
+	}
+	
+	/**
+	 * This constructor will create the ScreenObject and
+	 * 	make the object's x position, positionX and the 
+	 *  y position, positionY and the visibility, visible
+	 *  and the id, id.
+	 *  
+	 * @param positionX 	double containing x position
+	 * @param positionY	double containing y position
+	 * @param visible 	boolean determining if object is visible
+	 * @param id			String containing id
+	 * 
+	 * @precondition 	id != null
+	 * 
+	 * @postcondition 	getX() == positionX rounded to the tenth
+	 * 					getY() == positionY rounded to the tenth
+	 * 					getVisibility() == 0.0
+	 * 					getID() == UUID
+	 */
+	public ScreenObject(double positionX, double positionY, boolean visible, String id) {
+		if (id == null) {
+			throw new IllegalArgumentException("ScreenObject id cannot be null");
+		}
 		this.position = new Point2D.Double();
 		this.setX(positionX);
 		this.setY(positionY);
