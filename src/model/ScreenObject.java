@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.geom.Point2D;
+import java.util.UUID;
 
 /**
  * ScreenObject is the superclass for all objects that will
@@ -13,6 +14,7 @@ import java.awt.geom.Point2D;
 public class ScreenObject {
 	private Point2D.Double position;
 	private boolean visible;
+	private String id;
 	
 	/**
 	 * Default constructor for a ScreenObject.
@@ -25,10 +27,12 @@ public class ScreenObject {
 	 * @postcondition 	getX() == 0.0
 	 * 					getY() == 0.0
 	 * 					getVisibility() == 0.0
+	 * 					getID() == UUID
 	 */
 	public ScreenObject() {
 		this.position = new Point2D.Double(0, 0);
 		this.visible = false;
+		this.id = UUID.randomUUID().toString();
 	}
 	
 	/**
@@ -45,10 +49,12 @@ public class ScreenObject {
 	 * @postcondition 	getX() == 0.0
 	 * 					getY() == 0.0
 	 * 					getVisibility() == 0.0
+	 * 					getID() == UUID
 	 */
 	public ScreenObject(double positionX, double positionY, boolean visible) {
 		this.position = new Point2D.Double(positionX, positionY);
 		this.visible = visible;
+		this.id = UUID.randomUUID().toString();
 	}
 	
 	/**
@@ -104,6 +110,53 @@ public class ScreenObject {
 	 */
 	public boolean isVisible() {
 		return this.visible;
+	}
+	
+	/**
+	 * Gets the id of the object and returns it
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @return			String containing ScreenObject's id
+	 */
+	public String getID() {
+		return this.id;
+	}
+	
+	/**
+	 * Sets the x position
+	 * @param positionX 	double containing x position
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @postcondition 	getX() == positionX
+	 */
+	public void setX(double positionX) {
+		this.position.setLocation(positionX, this.position.getY());
+	}
+	
+	/**
+	 * Sets the y position
+	 * @param positionY 	double containing y position
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @postcondition 	getY() == positionY
+	 */
+	public void setY(double positionY) {
+		this.position.setLocation(this.position.getX(), positionY);
+	}
+	
+	/**
+	 * Sets the visibility
+	 * @param visibility	boolean containing visibility
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @postcondition 	getVisibility() == visibility
+	 */
+	public void setVisibility(boolean visibility) {
+		this.visible = visibility;
 	}
 	
 }
