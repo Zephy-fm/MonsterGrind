@@ -6,7 +6,9 @@ import java.util.UUID;
 /**
  * ScreenObject is the superclass for all objects that will
  * 	appear on the screen during the game. It contains details
- * 	on where the object's coordinates and visibility.
+ * 	on what the ScreenObject's coordinates are (x, y) and
+ *  if the object is currently visible or not. The ScreenObject
+ *  also keeps track of a UUID (Unique Identifier).
  * @author frankminyon
  *
  * @version 10/2/17
@@ -37,8 +39,8 @@ public class ScreenObject {
 	
 	/**
 	 * This constructor will create the ScreenObject and
-	 * 	make the object's x position, positionX and the 
-	 *  y position, positionY and the visibility, visible.
+	 *	make the object's x position, positionX and the 
+	 *	y position, positionY and the visibility, visible.
 	 * @param positionX 	double containing x position
 	 * @param positionY	double containing y position
 	 * @param visible 	boolean determining if object is visible
@@ -61,8 +63,9 @@ public class ScreenObject {
 	/**
 	 * This constructor will create the ScreenObject and
 	 * 	make the object's x position, positionX and the 
-	 *  y position, positionY and the visibility, visible
-	 *  and the id, id.
+	 *	y position, positionY and the visibility, visible
+	 *	and the id, id. This constructor should only really
+	 *	be used when initiating a ScreenObject from a data storage
 	 *  
 	 * @param positionX 	double containing x position
 	 * @param positionY	double containing y position
