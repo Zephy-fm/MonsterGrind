@@ -80,13 +80,10 @@ public class ScreenObject {
 	 * 					getID() == UUID
 	 */
 	public ScreenObject(double positionX, double positionY, boolean visible, String id) {
+		this(positionX, positionY, visible);
 		if (id == null) {
 			throw new IllegalArgumentException("ScreenObject id cannot be null");
 		}
-		this.position = new Point2D.Double();
-		this.setX(positionX);
-		this.setY(positionY);
-		this.visible = visible;
 		this.id = id;
 	}
 	
