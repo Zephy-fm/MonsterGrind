@@ -26,7 +26,7 @@ public class ScreenObject {
 	 * 
 	 * @postcondition 	getX() == 0.0
 	 * 					getY() == 0.0
-	 * 					getVisibility() == 0.0
+	 * 					getVisibility() == false
 	 * 					getID() == UUID
 	 */
 	public ScreenObject() {
@@ -46,13 +46,15 @@ public class ScreenObject {
 	 * 
 	 * @precondition 	none
 	 * 
-	 * @postcondition 	getX() == 0.0
-	 * 					getY() == 0.0
+	 * @postcondition 	getX() == positionX rounded to the tenth
+	 * 					getY() == positionY rounded to the tenth
 	 * 					getVisibility() == 0.0
 	 * 					getID() == UUID
 	 */
 	public ScreenObject(double positionX, double positionY, boolean visible) {
-		this.position = new Point2D.Double(positionX, positionY);
+		this.position = new Point2D.Double();
+		this.setX(positionX);
+		this.setY(positionY);
 		this.visible = visible;
 		this.id = UUID.randomUUID().toString();
 	}
@@ -132,7 +134,7 @@ public class ScreenObject {
 	 * @postcondition 	getX() == positionX rounded to the nearest tenth
 	 */
 	public void setX(double positionX) {
-		double roundedX = Math.round(positionX * 10 / 10);
+		double roundedX = (double) Math.round(positionX * 10) / 10;
 		this.position.setLocation(roundedX, this.position.getY());
 	}
 	
@@ -145,7 +147,7 @@ public class ScreenObject {
 	 * @postcondition 	getY() == positionY rounded to the nearest tenth
 	 */
 	public void setY(double positionY) {
-		double roundedY = Math.round(positionY * 10 / 10);
+		double roundedY = (double) Math.round(positionY * 10) / 10;
 		this.position.setLocation(this.position.getX(), roundedY);
 	}
 	
