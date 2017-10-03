@@ -84,6 +84,7 @@ public class MainView {
 	            double x = 232 + 128 * Math.cos(t);
 	            double y = 232 + 128 * Math.sin(t);
 	 
+	            
 	            // background image clears canvas
 	            gc.drawImage( icon, x, y );
 	        }
