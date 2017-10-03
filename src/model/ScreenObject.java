@@ -95,4 +95,15 @@ public class ScreenObject {
 		return this.visible;
 	}
 	
+	/**
+	 * Gets the visibility of the object and returns it
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @return			boolean containing ScreenObject's visibility
+	 */
+	public boolean isVisible() {
+		return this.visible;
+	}
+	
 }
