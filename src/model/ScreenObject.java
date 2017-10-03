@@ -84,7 +84,7 @@ public class ScreenObject {
 		this.setX(positionX);
 		this.setY(positionY);
 		this.visible = visible;
-		this.id = UUID.randomUUID().toString();
+		this.id = id;
 	}
 	
 	/**
