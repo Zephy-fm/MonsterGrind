@@ -46,7 +46,7 @@ public class TestScreenObjectWhenConstructor {
 	 */
 	@Test
 	public void testFourParameterConstructor() {
-		ScreenObject item = new ScreenObject(25, 30, true);
+		ScreenObject item = new ScreenObject(25, 30, true, "a651rag65");
 		assertEquals("ScreenObject (master class: Object) [position: (25.0, 30.0), visible: true]", item.toString());
 	}
 
