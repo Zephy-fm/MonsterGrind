@@ -158,5 +158,46 @@ public class ScreenObject {
 	public void setVisibility(boolean visibility) {
 		this.visible = visibility;
 	}
+
+	/**
+	 * Determines if the ScreenObjects are equal by comparing their
+	 * 	coordinates and their visibility
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ScreenObject other = (ScreenObject) obj;
+		if (position == null) {
+			if (other.position != null)
+				return false;
+		} else if (!position.equals(other.position))
+			return false;
+		if (visible != other.visible)
+			return false;
+		return true;
+	}
+
+	/**
+	 * Gets a description of the ScreenObject
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @return 			String containing the ScreenObject description
+	 */
+	@Override
+	public String toString() {
+		return "ScreenObject (master class: Object) ["
+				+ "position: (" + this.getX()
+				+ "," + this.getY() + "), "
+				+ "visible: " + this.getVisibility() + ", "
+				+ "]";
+	}
+	
+	
 	
 }
