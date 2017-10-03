@@ -17,7 +17,7 @@ public class GameController {
 	 * @postcondition 		none
 	 */
 	public void run() {
-		System.out.println("Hello World!");
+		System.out.println("Hello world!");
 	}
 
 }
