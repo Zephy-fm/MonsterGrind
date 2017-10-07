@@ -66,8 +66,8 @@ public class MainView {
 		gc.setLineWidth(2);
 		Font theFont = Font.font("Times New Roman", FontWeight.BOLD, 48);
 		gc.setFont(theFont);
-		gc.fillText("Hello, World!", 100, 100);
-		gc.strokeText("Hello, World!", 100, 100);
+		gc.fillText("Nick's a cutie!", 100, 100);
+		gc.strokeText("Nick's a cutie!", 100, 100);
 		
 		final Image icon = new Image(new File("resources/images/icon.png").toURI().toString());
 		gc.drawImage(icon, 200, 200, 100, 100);
