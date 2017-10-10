@@ -1,9 +1,6 @@
 package view;
 
-import java.util.ArrayList;
-
 import javafx.stage.Stage;
-import model.ScreenObject;
 
 /**
  * GameController controls the gameplay. It will generate
@@ -14,7 +11,7 @@ import model.ScreenObject;
  */
 public class GameController {
 	private MainView gameWindow;
-	private ArrayList<ScreenObject> screenObjectList;
+	//private ArrayList<ScreenObject> screenObjectList;
 	
 	/**
 	 * Initializes the GameController
@@ -26,7 +23,7 @@ public class GameController {
 	 * @postcondition 	object lists != null
 	 */
 	public GameController(Stage mainStage) {
-		this.screenObjectList = new ArrayList<ScreenObject>();
+		//this.screenObjectList = new ArrayList<ScreenObject>();
 		this.gameWindow = new MainView(mainStage);
 	}
 	
