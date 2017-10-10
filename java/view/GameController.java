@@ -1,10 +1,9 @@
-package controller;
+package view;
 
 import java.util.ArrayList;
 
 import javafx.stage.Stage;
 import model.ScreenObject;
-import view.MainView;
 
 /**
  * GameController controls the gameplay. It will generate
