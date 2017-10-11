@@ -10,6 +10,8 @@ package model;
 public class Weapon extends Equipment {
 	private int attackDamage;
 	private int spellDamage;
+	private String attackType;
+	private String attackMethod;
 	
 	/**
 	 * Creates a weapon with default values
@@ -45,7 +47,9 @@ public class Weapon extends Equipment {
 				+ "\n->sell price: " + super.getSellPrice()
 				+ "\n->buy price: " + super.getBuyPrice()
 				+ "\n->attack damage: " + this.attackDamage
-				+ "\n->spell damage: " + this.spellDamage;
+				+ "\n->spell damage: " + this.spellDamage
+				+ "\n->attack type: " + this.attackType
+				+ "\n->attack method: " + this.attackMethod;
 	}
 
 }
