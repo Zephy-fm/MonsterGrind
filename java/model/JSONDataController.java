@@ -27,16 +27,26 @@ public class JSONDataController {
 	private HashMap<Integer, Level> levelList;
 	
 	/**
-	 * Reads all data files and stores them.
-	 * 	Prepares all game data lists.
+	 * Prepares all data lists
 	 * 
 	 * @precondition 	none
 	 * 
-	 * @postcondition 	game data != empty
+	 * @postcondition 	game data lists != null
 	 */
 	public JSONDataController() {
 		this.weaponList = new HashMap<String, Weapon>();
 		this.levelList = new HashMap<Integer, Level>();
+	}
+	
+	/**
+	 * Populates all the game data lists with
+	 * 	information from the data files.
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @postcondition 	game data lists != empty
+	 */
+	public void loadAllData() {
 		try {
 			this.playerData = new FileReader("resources/data/playerData.json");
 			this.weaponData = new FileReader("resources/data/weaponData.json");
@@ -168,6 +178,31 @@ public class JSONDataController {
 			JsonObject levelObject = gson.toJsonTree(levelData).getAsJsonObject();
 			JsonArray levelArray = levelObject.get("" + levelNumber).getAsJsonArray();
 			return gson.fromJson(levelArray, Level.class);
+		} catch (FileNotFoundException error) {
+			error.getStackTrace();
+			return null;
+		}
+	}
+	
+	/**
+	 * Static method call that loads a specific weapon directly
+	 * 	from the weapon data files.
+	 * @param weaponID 		String containing Weapon id
+	 * 
+	 * @precondition 		weaponID != null
+	 * 
+	 * @return				Weapon with specified Weapon id
+	 */
+	public static Weapon getWeaponGlobal(String weaponID) {
+		if (weaponID == null) {
+			throw new IllegalArgumentException("weaponID cannot be null");
+		}
+		try {
+			Gson gson = new Gson();
+			Reader weaponData = new FileReader("resources/data/weaponData.json");
+			JsonObject weaponObject = gson.toJsonTree(weaponData).getAsJsonObject();
+			JsonArray weaponArray = weaponObject.get(weaponID).getAsJsonArray();
+			return gson.fromJson(weaponArray, Weapon.class);
 		} catch (FileNotFoundException error) {
 			error.getStackTrace();
 			return null;

@@ -17,12 +17,16 @@ public class Player {
 	private int intellect;
 	private int defense;
 	private int luck;
+	private int attackPower;
+	private int magicPower;
+	private int criticalChance;
 	private int experience;
 	private int experienceToLevelUp;
-	private String weapon;
-	private String armor;
-	private String accessory1;
-	private String accessory2;
+	private String weaponID;
+	private String armorID;
+	private String accessory1ID;
+	private String accessory2ID;
+	private EquipmentManager equipmentManager;
 	
 	/**
 	 * Initializes a Player with default values
@@ -34,7 +38,8 @@ public class Player {
 	 * 					equipment == null
 	 */
 	public Player() {
-		return;
+		this.equipmentManager = new EquipmentManager(this.weaponID, 
+				this.armorID, this.accessory1ID, this.accessory2ID);
 	}
 	
 	/**
@@ -46,6 +51,49 @@ public class Player {
 	 */
 	public int getNextLevel() {
 		return this.level + 1;
+	}
+	
+	public void update() {
+		updateAttackPower();
+		updateMagicPower();
+		updateCriticalChance();
+	}
+
+	/**
+	 * Updates the critical chance of the Player
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @postcondition 	critical chance is current
+	 */
+	private void updateCriticalChance() {
+		int calculation = (int) Math.round(this.dexterity * 0.5);
+		this.criticalChance = (int) Math.round(calculation + (this.luck * 0.5));
+	}
+
+	/**
+	 * Updates the magic power of the Player
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @postcondition 	magic power is current
+	 */
+	private void updateMagicPower() {
+		int calculation = this.intellect;
+		this.magicPower = calculation + this.equipmentManager.getMagicPower();
+	}
+
+	/**
+	 * Updates the attack power of the Player
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @postcondition 	attack power is current
+	 */
+	private void updateAttackPower() {
+		int calculation = (int) Math.round(this.strength * 0.7);
+		calculation += 0.5 * this.dexterity;
+		this.attackPower = calculation + this.equipmentManager.getAttackPower();
 	}
 	
 	/**
@@ -103,6 +151,44 @@ public class Player {
 	}
 	
 	/**
+	 * Equips a specified weapon
+	 * @param weaponID 	String containing weaponID
+	 * 
+	 * @precondition 	weaponID != null
+	 * 
+	 * @postcondition 	weapon and stats are updated
+	 */
+	public void equipWeapon(String weaponID) {
+		if (weaponID == null) {
+			throw new IllegalArgumentException("theWeapon cannot be null");
+		}
+		this.subtractEquipmentStats(this.equipmentManager.getWeapon());
+		this.equipmentManager.equipWeapon(weaponID);
+		this.addEquipmentStats(this.equipmentManager.getWeapon());
+		this.update();
+	}
+	
+	private void addEquipmentStats(Equipment theEquipment) {
+		this.hp += theEquipment.getHp();
+		this.mp += theEquipment.getMp();
+		this.strength += theEquipment.getStrength();
+		this.dexterity += theEquipment.getDexterity();
+		this.intellect += theEquipment.getIntellect();
+		this.defense += theEquipment.getDefense();
+		this.luck += theEquipment.getLuck();
+	}
+	
+	private void subtractEquipmentStats(Equipment theEquipment) {
+		this.hp -= theEquipment.getHp();
+		this.mp -= theEquipment.getMp();
+		this.strength -= theEquipment.getStrength();
+		this.dexterity -= theEquipment.getDexterity();
+		this.intellect -= theEquipment.getIntellect();
+		this.defense -= theEquipment.getDefense();
+		this.luck -= theEquipment.getLuck();
+	}
+	
+	/**
 	 * Gathers the Player information and returns it
 	 * 
 	 * @precondition 	none
@@ -120,12 +206,15 @@ public class Player {
 				+ "\n->intellect: " + this.intellect
 				+ "\n->defense: " + this.defense
 				+ "\n->luck: " + this.luck
+				+ "\n->attack power: " + this.attackPower
+				+ "\n->magic power: " + this.magicPower
+				+ "\n->critical chance: " + this.criticalChance
 				+ "\n->experience: " + this.experience
 				+ "\n->experienceToLevelUp: " + this.experienceToLevelUp
-				+ "\n->weapon: " + this.weapon
-				+ "\n->armor: " + this.armor
-				+ "\n->accessory1: " + this.accessory1
-				+ "\n->accessory2: " + this.accessory2;
+				+ "\n->weapon: " + this.weaponID
+				+ "\n->armor: " + this.armorID
+				+ "\n->accessory1: " + this.accessory1ID
+				+ "\n->accessory2: " + this.accessory2ID;
 	}
 	
 }
