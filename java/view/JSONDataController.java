@@ -178,11 +178,17 @@ public class JSONDataController {
 		}
 	}
 	
-	/*
-	public Level loadLevel(int level) {
-		JsonObject levelTree = this.gson.fromJson(this.levelData, JsonObject.class);
-		JsonObject specifiedLevelJsonObject = levelTree.get("" + level).getAsJsonObject();
-		return this.gson.fromJson(specifiedLevelJsonObject, Level.class);
+	/**
+	 * Generates a description of the current JSONDataController and returns it
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @return 			String containing description of JSONDataController
+	 */
+	public String toString() {
+		return "JSONDataController:"
+				+ "\n->weapon list size: " + this.weaponList.size()
+				+ "\n->level list size: " + this.levelList.size();
 	}
-	*/
+	
 }
