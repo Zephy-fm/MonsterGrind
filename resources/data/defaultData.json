@@ -2,7 +2,6 @@
 	"Default" : {
 
 		"Player" : {
-			"id" : 0,
 			"name" : "player",
 			"hp" : 15,
 			"mp" : 10,

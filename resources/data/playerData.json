@@ -1,5 +1,4 @@
-{ "Player" : {
-	"id" : 0,
+{
 	"name" : "player",
 	"hp" : 15,
 	"mp" : 10,
@@ -16,4 +15,3 @@
 	"accessory1" : "1acc1",
 	"accessory2" : "2acc1"
 	}
-}

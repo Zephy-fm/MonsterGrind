@@ -2,7 +2,7 @@ package model;
 
 import java.util.Map;
 
-public abstract class Equipment {
+public class Equipment {
 	private String name;
 	private String description;
 	private int hp;
