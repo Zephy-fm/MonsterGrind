@@ -1,7 +1,5 @@
 package model;
 
-import view.JSONDataController;
-
 /**
  * Player keeps track of all Player data.
  * 	Players should be created from existing data.

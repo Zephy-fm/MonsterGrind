@@ -1,5 +1,6 @@
 package view;
 
+import model.JSONDataController;
 import model.Player;
 
 /**

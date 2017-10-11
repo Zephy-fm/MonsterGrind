@@ -1,4 +1,4 @@
-package view;
+package model;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -10,10 +10,6 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-
-import model.Level;
-import model.Player;
-import model.Weapon;
 
 /**
  * JsonDataController loads and saves all data
