@@ -1,13 +1,18 @@
 package model;
 
 public class EquipmentManager {
+	private JSONDataController jsonDataController;
 	private Weapon weapon;
 	private Weapon armor;
 	private Weapon accessory1;
 	private Weapon accessory2;
 	
-	public EquipmentManager(String weaponID, String armorID, String accessory1ID, String accessory2ID) {
-		this.weapon = JSONDataController.getWeaponGlobal(weaponID);
+	public EquipmentManager(JSONDataController jsonDataController, String weaponID, String armorID, String accessory1ID, String accessory2ID) {
+		this.jsonDataController = jsonDataController;
+		this.weapon = this.jsonDataController.getWeapon(weaponID);
+		this.armor = this.jsonDataController.getWeapon(weaponID);
+		this.accessory1 = this.jsonDataController.getWeapon(weaponID);
+		this.accessory2 = this.jsonDataController.getWeapon(weaponID);
 	}
 	
 	public Weapon getWeapon() {
@@ -18,7 +23,7 @@ public class EquipmentManager {
 		if (weaponID == null) {
 			throw new IllegalArgumentException("weaponID cannot be null");
 		}
-		this.weapon = JSONDataController.getWeaponGlobal(weaponID);
+		this.weapon = this.jsonDataController.getWeapon(weaponID);
 	}
 	
 	public void equipWeapon(Weapon theWeapon) {

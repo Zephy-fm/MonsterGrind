@@ -23,7 +23,12 @@ public class ApplicationController {
 	 */
 	public ApplicationController() {
 		this.jsonDataController = new JSONDataController();
+		this.jsonDataController.loadAllData();
 		this.thePlayer = this.jsonDataController.loadPlayer();
+		System.out.println("Before Player::setup()\n" + this.thePlayer);
+		this.thePlayer.setup(this.jsonDataController);
+		//this.thePlayer.setup();
+		//System.out.println(this.jsonDataController.get));
 	}
 	
 	/**
@@ -34,7 +39,7 @@ public class ApplicationController {
 	 * @postcondition 	none
 	 */
 	public void run() {
-		System.out.println(this.thePlayer);
+		System.out.println("After Player::setup()\n" + this.thePlayer);
 		System.out.println(this.jsonDataController);
 	}
 	

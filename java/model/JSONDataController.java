@@ -34,6 +34,13 @@ public class JSONDataController {
 	 * @postcondition 	game data lists != null
 	 */
 	public JSONDataController() {
+		try {
+			this.playerData = new FileReader("resources/data/playerData.json");
+			this.weaponData = new FileReader("resources/data/weaponData.json");
+			this.levelData = new FileReader("resources/data/levelData.json");
+		} catch (FileNotFoundException error) {
+			error.printStackTrace();
+		}
 		this.weaponList = new HashMap<String, Weapon>();
 		this.levelList = new HashMap<Integer, Level>();
 	}
@@ -47,13 +54,6 @@ public class JSONDataController {
 	 * @postcondition 	game data lists != empty
 	 */
 	public void loadAllData() {
-		try {
-			this.playerData = new FileReader("resources/data/playerData.json");
-			this.weaponData = new FileReader("resources/data/weaponData.json");
-			this.levelData = new FileReader("resources/data/levelData.json");
-		} catch (FileNotFoundException error) {
-			error.printStackTrace();
-		}
 		this.parseWeapons();
 		this.parseLevels();
 	}
@@ -155,58 +155,20 @@ public class JSONDataController {
 		}
 		return this.levelList.get(levelNumber);
 	}
-	
+
 	/**
-	 * Static method call that loads a specific level directly
-	 * 	from the level data files.
-	 * @param levelNumber 	int containing Level number
-	 * 
-	 * @precondition 		levelNumber >= 0 && levelNumber <= 100
-	 * 
-	 * @return				Level with specified Level number
-	 */
-	public static Level getLevelGlobal(int levelNumber) {
-		if (levelNumber < 0) {
-			throw new IllegalArgumentException("levelNumber must not be negative");
-		}
-		if (levelNumber > 100) {
-			throw new IllegalArgumentException("levelNumber must not be over 100");
-		}
-		try {
-			Gson gson = new Gson();
-			Reader levelData = new FileReader("resources/data/levelData.json");
-			JsonObject levelObject = gson.toJsonTree(levelData).getAsJsonObject();
-			JsonArray levelArray = levelObject.get("" + levelNumber).getAsJsonArray();
-			return gson.fromJson(levelArray, Level.class);
-		} catch (FileNotFoundException error) {
-			error.getStackTrace();
-			return null;
-		}
-	}
-	
-	/**
-	 * Static method call that loads a specific weapon directly
-	 * 	from the weapon data files.
+	 * Gets a Weapon based on the Weapon id specified
 	 * @param weaponID 		String containing Weapon id
 	 * 
 	 * @precondition 		weaponID != null
 	 * 
-	 * @return				Weapon with specified Weapon id
+	 * @return 				Weapon with specified Weapon id
 	 */
-	public static Weapon getWeaponGlobal(String weaponID) {
+	public Weapon getWeapon(String weaponID) {
 		if (weaponID == null) {
 			throw new IllegalArgumentException("weaponID cannot be null");
 		}
-		try {
-			Gson gson = new Gson();
-			Reader weaponData = new FileReader("resources/data/weaponData.json");
-			JsonObject weaponObject = gson.toJsonTree(weaponData).getAsJsonObject();
-			JsonArray weaponArray = weaponObject.get(weaponID).getAsJsonArray();
-			return gson.fromJson(weaponArray, Weapon.class);
-		} catch (FileNotFoundException error) {
-			error.getStackTrace();
-			return null;
-		}
+		return this.weaponList.get(weaponID);
 	}
 	
 	/**

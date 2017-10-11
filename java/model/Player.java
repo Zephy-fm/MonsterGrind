@@ -8,6 +8,7 @@ package model;
  * @version 10/11/17
  */
 public class Player {
+	private JSONDataController jsonDataController;
 	private String name;
 	private int level;
 	private int hp;
@@ -38,8 +39,41 @@ public class Player {
 	 * 					equipment == null
 	 */
 	public Player() {
-		this.equipmentManager = new EquipmentManager(this.weaponID, 
+		return;
+	}
+	
+	/**
+	 * This function needs to be run after variables are initialized
+	 * @param jsonDataController 	JSONDataController passed down
+	 * 
+	 * @precondition 	jsonDataController != null
+	 * 					Player weapon id != null
+	 * 					Player armor id != null
+	 * 					Player accessory 1 id != null
+	 * 					Player accessory 2 id != null
+	 * 
+	 * @postcondition 	Player ready for game interaction
+	 */
+	public void setup(JSONDataController jsonDataController) {
+		if (jsonDataController == null) {
+			throw new IllegalArgumentException("jsonDataController cannot be null");
+		}
+		if (this.weaponID == null) {
+			throw new IllegalArgumentException("weapon id cannot be null");
+		}
+		if (this.armorID == null) {
+			throw new IllegalArgumentException("armor id cannot be null");
+		}
+		if (this.accessory1ID == null) {
+			throw new IllegalArgumentException("accessory 1 id cannot be null");
+		}
+		if (this.accessory2ID == null) {
+			throw new IllegalArgumentException("accessory 2 id cannot be null");
+		}
+		this.jsonDataController = jsonDataController;
+		this.equipmentManager = new EquipmentManager(jsonDataController, this.weaponID, 
 				this.armorID, this.accessory1ID, this.accessory2ID);
+		this.update();
 	}
 	
 	/**
@@ -53,6 +87,15 @@ public class Player {
 		return this.level + 1;
 	}
 	
+	/**
+	 * Updates the Player's attack power, 
+	 * 	magic power, and critical chance. This
+	 * 	method is used whenever new equipment is equipped
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @postcondition 	Player's offensive power is updated
+	 */
 	public void update() {
 		updateAttackPower();
 		updateMagicPower();
@@ -142,7 +185,7 @@ public class Player {
 		int totalExperience = this.experience + awardedExperience;
 		if (totalExperience > this.experienceToLevelUp) {
 			int remainingExperience = totalExperience - this.experienceToLevelUp;
-			Level nextLevel = JSONDataController.getLevelGlobal(this.level);
+			Level nextLevel = this.jsonDataController.getLevel(this.level);
 			this.levelUp(nextLevel);
 			this.giveExperience(remainingExperience);
 		} else {
