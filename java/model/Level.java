@@ -2,12 +2,14 @@ package model;
 
 /**
  * Level class describes what stats are gained upon reaching
- * 	a level, including the experience needed for the next level up
+ * 	a level, including the experience needed for the next level up.
+ * 	Levels should be created from existing data.
  * @author frankminyon
  *
  * @version 10/11/17
  */
 public class Level {
+	private int levelNumber;
 	private int hp;
 	private int mp;
 	private int strength;
@@ -22,17 +24,21 @@ public class Level {
 	 *
 	 * @precondition 	none
 	 * 
-	 * @postcondition 	hp == 0
-	 * 					mp == 0
-	 * 					strength == 0
-	 * 					dexterity == 0
-	 * 					intellect == 0
-	 * 					defense == 0
-	 * 					luck == 0
-	 * 					experience to level up == 0
+	 * @postcondition 	level data is empty
 	 */
 	public Level() {
 		return;
+	}
+
+	/**
+	 * Gets the Level's level number
+	 * 
+	 * @postcondition 	none
+	 * 
+	 * @return			int with Level's level number 
+	 */
+	public int getLevelNumber() {
+		return this.levelNumber;
 	}
 
 	/**
@@ -121,6 +127,13 @@ public class Level {
 	 */
 	public int getExperienceToLevelUp() {
 		return this.experienceToLevelUp;
+	}
+
+	@Override
+	public String toString() {
+		return "Level [level number=" + this.levelNumber + ", hp=" + this.hp + ", mp=" + this.mp + ", strength=" + this.strength + ", dexterity=" + this.dexterity + ", intellect="
+				+ this.intellect + ", defense=" + this.defense + ", luck=" + this.luck + ", experienceToLevelUp=" + this.experienceToLevelUp
+				+ "]";
 	}
 
 }

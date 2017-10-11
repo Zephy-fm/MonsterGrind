@@ -1,0 +1,36 @@
+{
+	"wep1" : {
+		"id" : "wep1",
+		"name" : "Dull Sword",
+		"description" : "A plain, dull sword. Could possible be a large butterknife.",
+		"hp" : 0,
+		"mp" : 0,
+		"strength" : 0,
+		"dexterity" : 0,
+		"intellect" : 0,
+		"defense" : 0,
+		"luck" : 0,
+		"special" : "none",
+		"sellPrice" : 1,
+		"buyPrice" : 5,
+		"attackDamage" : 1,
+		"spellDamage" : 0
+	},
+	"wep2" : {
+		"id" : "wep2",
+		"name" : "Wooden Staff",
+		"description" : "Basic staff. Barely a conductor magic.",
+		"hp" : 0,
+		"mp" : 0,
+		"strength" : 0,
+		"dexterity" : 0,
+		"intellect" : 1,
+		"defense" : 0,
+		"luck" : 0,
+		"special" : "none",
+		"sellPrice" : 3,
+		"buyPrice" : 10,
+		"attackDamage" : 0,
+		"spellDamage" : 1
+	}
+}

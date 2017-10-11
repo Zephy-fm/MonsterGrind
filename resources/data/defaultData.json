@@ -1,37 +1,32 @@
-{ 
-	"Default" : {
-
-		"Player" : {
-			"name" : "player",
-			"hp" : 15,
-			"mp" : 10,
-			"strength" : 3,
-			"dexterity" : 3,
-			"intellect" : 3,
-			"defense" : 3,
-			"luck" : 3,
-			"level": 1,
-			"experience" : 0,
-			"experienceToLevelUp" : 100,
-			"weapon" : "wep1",
-			"armor" : "arm1",
-			"accessory1" : "1acc1",
-			"accessory2" : "2acc1"
-		},
-	
-		"Equipment" : {
-			"id" : 0,
-			"name" : "Item",
-			"description" : "An item.",
-			"hp" : 0,
-			"mp" : 0,
-			"strength" : 0,
-			"dexterity" : 0,
-			"intellect" : 0,
-			"defense" : 0,
-			"luck" : 0,
-			"special" : "spc1"
-		}
-		
+{
+	"Player" : {
+		"name" : "player",
+		"hp" : 15,
+		"mp" : 10,
+		"strength" : 3,
+		"dexterity" : 3,
+		"intellect" : 3,
+		"defense" : 3,
+		"luck" : 3,
+		"level": 1,
+		"experience" : 0,
+		"experienceToLevelUp" : 100,
+		"weapon" : "wep1",
+		"armor" : "arm1",
+		"accessory1" : "1acc1",
+		"accessory2" : "2acc1"
+	},
+	"Equipment" : {
+		"id" : 0,
+		"name" : "Item",
+		"description" : "An item.",
+		"hp" : 0,
+		"mp" : 0,
+		"strength" : 0,
+		"dexterity" : 0,
+		"intellect" : 0,
+		"defense" : 0,
+		"luck" : 0,
+		"special" : "spc1"
 	}
 }

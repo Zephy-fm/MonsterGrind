@@ -1,137 +1,124 @@
-{ 
-	"Level" : {
-	
-		"0" : {
-			"hp" : 0,
-			"mp" : 0,
-			"strength" : 0,
-			"dexterity" : 0,
-			"intellect" : 0,
-			"defense" : 0,
-			"luck" : 0,
-			"experienceToLevelUp": 100
-		},
-		
-		
-		"1" : {
-			"hp" : 5,
-			"mp" : 2,
-			"strength" : 2,
-			"dexterity" : 2,
-			"intellect" : 2,
-			"defense" : 2,
-			"luck" : 2,
-			"experienceToLevelUp": 200
-		},
-		
-		
-		"2" : {
-			"hp" : 6,
-			"mp" : 2,
-			"strength" : 2,
-			"dexterity" : 2,
-			"intellect" : 2,
-			"defense" : 2,
-			"luck" : 2,
-			"experienceToLevelUp": 400
-		},
-		
-		
-		"3" : {
-			"hp" : 7,
-			"mp" : 2,
-			"strength" : 2,
-			"dexterity" : 2,
-			"intellect" : 2,
-			"defense" : 2,
-			"luck" : 2,
-			"experienceToLevelUp": 700
-		},
-		
-		
-		"4" : {
-			"hp" : 8,
-			"mp" : 3,
-			"strength" : 2,
-			"dexterity" : 2,
-			"intellect" : 2,
-			"defense" : 2,
-			"luck" : 2,
-			"experienceToLevelUp": 100
-		},
-		
-		
-		"5" : {
-			"hp" : 9,
-			"mp" : 3,
-			"strength" : 2,
-			"dexterity" : 2,
-			"intellect" : 2,
-			"defense" : 2,
-			"luck" : 2,
-			"experienceToLevelUp": 1300
-		},
-		
-		
-		"6" : {
-			"hp" : 10,
-			"mp" : 4,
-			"strength" : 2,
-			"dexterity" : 2,
-			"intellect" : 2,
-			"defense" : 3,
-			"luck" : 2,
-			"experienceToLevelUp": 1600
-		},
-		
-		
-		"7" : {
-			"hp" : 11,
-			"mp" : 4,
-			"strength" : 3,
-			"dexterity" : 2,
-			"intellect" : 2,
-			"defense" : 2,
-			"luck" : 2,
-			"experienceToLevelUp": 1950
-		},
-		
-		
-		"8" : {
-			"hp" : 12,
-			"mp" : 4,
-			"strength" : 2,
-			"dexterity" : 3,
-			"intellect" : 2,
-			"defense" : 2,
-			"luck" : 3,
-			"experienceToLevelUp": 1950
-		},
-		
-		
-		"9" : {
-			"hp" : 13,
-			"mp" : 5,
-			"strength" : 2,
-			"dexterity" : 2,
-			"intellect" : 3,
-			"defense" : 3,
-			"luck" : 2,
-			"experienceToLevelUp": 2200
-		},
-		
-		
-		"10" : {
-			"hp" : 14,
-			"mp" : 5,
-			"strength" : 4,
-			"dexterity" : 2,
-			"intellect" : 3,
-			"defense" : 2,
-			"luck" : 2,
-			"experienceToLevelUp": 2700
-		}
-		
+{
+	"0" : {
+		"levelNumber" : 0, 
+		"hp" : 0,
+		"mp" : 0,
+		"strength" : 0,
+		"dexterity" : 0,
+		"intellect" : 0,
+		"defense" : 0,
+		"luck" : 0,
+		"experienceToLevelUp": 100
+	},
+	"1" : {
+		"levelNumber" : 1, 
+		"hp" : 5,
+		"mp" : 2,
+		"strength" : 2,
+		"dexterity" : 2,
+		"intellect" : 2,
+		"defense" : 2,
+		"luck" : 2,
+		"experienceToLevelUp": 200
+	},
+	"2" : {
+		"levelNumber" : 2, 
+		"hp" : 6,
+		"mp" : 2,
+		"strength" : 2,
+		"dexterity" : 2,
+		"intellect" : 2,
+		"defense" : 2,
+		"luck" : 2,
+		"experienceToLevelUp": 400
+	},
+	"3" : {
+		"levelNumber" : 3, 
+		"hp" : 7,
+		"mp" : 2,
+		"strength" : 2,
+		"dexterity" : 2,
+		"intellect" : 2,
+		"defense" : 2,
+		"luck" : 2,
+		"experienceToLevelUp": 700
+	},
+	"4" : {
+		"levelNumber" : 4, 
+		"hp" : 8,
+		"mp" : 3,
+		"strength" : 2,
+		"dexterity" : 2,
+		"intellect" : 2,
+		"defense" : 2,
+		"luck" : 2,
+		"experienceToLevelUp": 100
+	},
+	"5" : {
+		"levelNumber" : 5, 
+		"hp" : 9,
+		"mp" : 3,
+		"strength" : 2,
+		"dexterity" : 2,
+		"intellect" : 2,
+		"defense" : 2,
+		"luck" : 2,
+		"experienceToLevelUp": 1300
+	},
+	"6" : {
+		"levelNumber" : 6, 
+		"hp" : 10,
+		"mp" : 4,
+		"strength" : 2,
+		"dexterity" : 2,
+		"intellect" : 2,
+		"defense" : 3,
+		"luck" : 2,
+		"experienceToLevelUp": 1600
+	},
+	"7" : {
+		"levelNumber" : 7, 
+		"hp" : 11,
+		"mp" : 4,
+		"strength" : 3,
+		"dexterity" : 2,
+		"intellect" : 2,
+		"defense" : 2,
+		"luck" : 2,
+		"experienceToLevelUp": 1950
+	},
+	"8" : {
+		"levelNumber" : 8, 
+		"hp" : 12,
+		"mp" : 4,
+		"strength" : 2,
+		"dexterity" : 3,
+		"intellect" : 2,
+		"defense" : 2,
+		"luck" : 3,
+		"experienceToLevelUp": 1950
+	},
+	"9" : {
+		"levelNumber" : 9, 
+		"hp" : 13,
+		"mp" : 5,
+		"strength" : 2,
+		"dexterity" : 2,
+		"intellect" : 3,
+		"defense" : 3,
+		"luck" : 2,
+		"experienceToLevelUp": 2200
+	},
+	"10" : {
+		"levelNumber" : 10, 
+		"hp" : 14,
+		"mp" : 5,
+		"strength" : 4,
+		"dexterity" : 2,
+		"intellect" : 3,
+		"defense" : 2,
+		"luck" : 2,
+		"experienceToLevelUp": 2700
 	}
 }
 			
