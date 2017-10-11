@@ -13,8 +13,8 @@
 		"special" : "none",
 		"sellPrice" : 1,
 		"buyPrice" : 5,
-		"attackDamage" : 1,
-		"spellDamage" : 0,
+		"attackPower" : 1,
+		"magicPower" : 0,
 		"attackType" : "physical",
 		"attackMehod" : "swings"
 	},
@@ -32,8 +32,8 @@
 		"special" : "none",
 		"sellPrice" : 3,
 		"buyPrice" : 10,
-		"attackDamage" : 0,
-		"spellDamage" : 1,
+		"attackPower" : 0,
+		"magicPower" : 1,
 		"attackType" : "physical",
 		"attackMehod" : "smacks"
 	},
@@ -51,8 +51,8 @@
 		"special" : "none",
 		"sellPrice" : 5,
 		"buyPrice" : 25,
-		"attackDamage" : 2,
-		"spellDamage" : 0,
+		"attackPower" : 2,
+		"magicPower" : 0,
 		"attackType" : "physical",
 		"attackMehod" : "stabs"
 	},
@@ -70,8 +70,8 @@
 		"special" : "spc1",
 		"sellPrice" : 50,
 		"buyPrice" : 150,
-		"attackDamage" : 2,
-		"spellDamage" : 2,
+		"attackPower" : 2,
+		"magicPower" : 2,
 		"attackType" : "physical",
 		"attackMehod" : "slashes"
 	},
@@ -89,8 +89,8 @@
 		"special" : "none",
 		"sellPrice" : 215,
 		"buyPrice" : 700,
-		"attackDamage" : 5,
-		"spellDamage" : 0,
+		"attackPower" : 5,
+		"magicPower" : 0,
 		"attackType" : "physical",
 		"attackMehod" : "slices"
 	},
@@ -108,8 +108,8 @@
 		"special" : "none",
 		"sellPrice" : 240,
 		"buyPrice" : 850,
-		"attackDamage" : 0,
-		"spellDamage" : 7,
+		"attackPower" : 0,
+		"magicPower" : 7,
 		"attackType" : "physical",
 		"attackMehod" : "smacks"
 	},
@@ -127,8 +127,8 @@
 		"special" : "spc2",
 		"sellPrice" : 400,
 		"buyPrice" : 1200,
-		"attackDamage" : 10,
-		"spellDamage" : 0,
+		"attackPower" : 10,
+		"magicPower" : 0,
 		"attackType" : "physical",
 		"attackMehod" : "punches"
 	}

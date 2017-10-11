@@ -8,8 +8,8 @@ package model;
  * @version 10/11/17
  */
 public class Weapon extends Equipment {
-	private int attackDamage;
-	private int spellDamage;
+	private int attackPower;
+	private int magicPower;
 	private String attackType;
 	private String attackMethod;
 	
@@ -22,6 +22,50 @@ public class Weapon extends Equipment {
 	 */
 	public Weapon() {
 		return;
+	}
+	
+	/**
+	 * Gets the Weapon's attack power and returns it
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @return 			int containing Weapon's attack power
+	 */
+	public int getAttackPower() {
+		return this.attackPower;
+	}
+	
+	/**
+	 * Gets the Weapon's magic power and returns it
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @return 			int containing Weapon's magic power
+	 */
+	public int getMagicPower() {
+		return this.magicPower;
+	}
+	
+	/**
+	 * Gets the Weapon's attack type and returns it
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @return 			String containing Weapon's attack type
+	 */
+	public String getAttackType() {
+		return this.attackType;
+	}
+	
+	/**
+	 * Gets the Weapon's attack method and returns it
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @return 			String containing Weapon's attack method
+	 */
+	public String getAttackMethod() {
+		return this.attackMethod;
 	}
 	
 	/**
@@ -46,8 +90,8 @@ public class Weapon extends Equipment {
 				+ "\n->special: " + super.getSpecial()
 				+ "\n->sell price: " + super.getSellPrice()
 				+ "\n->buy price: " + super.getBuyPrice()
-				+ "\n->attack damage: " + this.attackDamage
-				+ "\n->spell damage: " + this.spellDamage
+				+ "\n->attack damage: " + this.attackPower
+				+ "\n->spell damage: " + this.magicPower
 				+ "\n->attack type: " + this.attackType
 				+ "\n->attack method: " + this.attackMethod;
 	}
