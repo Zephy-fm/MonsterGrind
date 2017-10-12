@@ -1,5 +1,12 @@
 package model;
 
+/**
+ * EquipmentManager handles the stats and effects
+ * 	found within equipment
+ * @author FrankMinyon
+ *
+ * @version 10/12/17
+ */
 public class EquipmentManager {
 	private JSONDataController jsonDataController;
 	private Weapon weapon;
