@@ -91,6 +91,7 @@ public class Player {
 	 * Updates the Player's attack power, 
 	 * 	magic power, and critical chance. This
 	 * 	method is used whenever new equipment is equipped
+	 *  or the player has leveled up.
 	 * 
 	 * @precondition 	none
 	 * 
@@ -165,6 +166,7 @@ public class Player {
 		this.luck += levelInformation.getLuck();
 		this.experienceToLevelUp = levelInformation.getExperienceToLevelUp();
 		this.experience = 0;
+		this.update();
 	}
 	
 	/**
