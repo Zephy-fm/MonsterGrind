@@ -3,10 +3,11 @@ package model;
 /**
  * Level class describes what stats are gained upon reaching
  * 	a level, including the experience needed for the next level up.
- * 	Levels should be created from existing data.
+ * 	Levels should be created from data files.
+ * 
  * @author frankminyon
  *
- * @version 10/11/17
+ * @version 10/19/17
  */
 public class Level {
 	private int levelNumber;
@@ -129,6 +130,13 @@ public class Level {
 		return this.experienceToLevelUp;
 	}
 
+	/**
+	 * Generates a description of the Level object
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @return 			String containing Level description
+	 */
 	@Override
 	public String toString() {
 		return "Level [level number=" + this.levelNumber + ", hp=" + this.hp + ", mp=" + this.mp + ", strength=" + this.strength + ", dexterity=" + this.dexterity + ", intellect="

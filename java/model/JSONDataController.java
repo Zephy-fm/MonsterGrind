@@ -13,9 +13,10 @@ import com.google.gson.JsonObject;
 /**
  * JsonDataController loads and saves all data
  * 	to json files that are used for game data.
+ * 
  * @author frankminyon
  *
- * @version 10/12/17
+ * @version 10/19/17
  */
 public class JSONDataController {
 	private Reader playerData;
@@ -92,6 +93,7 @@ public class JSONDataController {
 	/**
 	 * Verifies a parsed Weapon is initiated correctly and
 	 * 	adds it to the game's Weapon list
+	 * 
 	 * @param theWeapon 	Weapon to verify is a valid Weapon
 	 * 
 	 * @precondition 	theWeapon != null
@@ -126,6 +128,7 @@ public class JSONDataController {
 	/**
 	 * Verifies a parsed Level is initiated correctly and
 	 * 	adds it to the game's Level list
+	 * 
 	 * @param theWeapon 	Level to verify is a valid Level
 	 * 
 	 * @precondition 	theLevel != null
@@ -141,6 +144,7 @@ public class JSONDataController {
 
 	/**
 	 * Gets a Level based on the Level number specified
+	 * 
 	 * @param levelNumber 	int containing Level number
 	 * 
 	 * @precondition 		levelNumber >= 0 && levelNumber <= 100
@@ -159,6 +163,7 @@ public class JSONDataController {
 
 	/**
 	 * Gets a Weapon based on the Weapon id specified
+	 * 
 	 * @param weaponID 		String containing Weapon id
 	 * 
 	 * @precondition 		weaponID != null

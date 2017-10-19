@@ -3,9 +3,10 @@ package model;
 /**
  * Weapons include bonus addition stats, such as
  * 	attack damage and spell damage.
+ * 
  * @author frankminyon
  *
- * @version 10/11/17
+ * @version 10/19/17
  */
 public class Weapon extends Equipment {
 	private int attackPower;
@@ -18,7 +19,9 @@ public class Weapon extends Equipment {
 	 * 
 	 * @precondition 	none
 	 * 
-	 * @postcondition 	0 stats, no name, no description.
+	 * @postcondition 	stats == 0
+	 * 					name == null 
+	 * 					description == null
 	 */
 	public Weapon() {
 		return;

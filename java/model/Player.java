@@ -5,9 +5,10 @@ import view.ApplicationController;
 /**
  * Player keeps track of all Player data.
  * 	Players should be created from existing data.
+ * 
  * @author frankminyon
  *
- * @version 10/11/17
+ * @version 10/19/17
  */
 public class Player {
 	private String name;
@@ -35,7 +36,9 @@ public class Player {
 	 * 
 	 * @precondition 	none
 	 * 
-	 * @postcondition 	Player is ready for setup
+	 * @postcondition 	stats == 0
+	 * 					name == null
+	 * 					equipment == null
 	 */
 	public Player() {
 		return;
@@ -166,6 +169,7 @@ public class Player {
 	 * Gives a Player a specified amount of experience. The Player
 	 * 	will level up if the Player's collective experience is greater
 	 * 	than the experience needed to level up.
+	 * 
 	 * @param awardedExperience 	int containing experience to award
 	 * 
 	 * @precondition 			awardedExperience >= 0
@@ -188,12 +192,13 @@ public class Player {
 	}
 	
 	/**
-	 * Equips a specified weapon
-	 * @param weaponID 	String containing weaponID
+	 * Equips a specified Weapon through Weapon ID
+	 * 
+	 * @param weaponID 	String containing Weapon ID
 	 * 
 	 * @precondition 	weaponID != null
 	 * 
-	 * @postcondition 	weapon and stats are updated
+	 * @postcondition 	Weapon and stats are updated
 	 */
 	public void equipWeapon(String weaponID) {
 		if (weaponID == null) {
@@ -205,7 +210,20 @@ public class Player {
 		this.update();
 	}
 	
+	/**
+	 * Helper method that adds the stats of the given
+	 * 	Equipment object to the player.
+	 * 
+	 * @param theEquipment 	Equipment to gather stats from
+	 * 
+	 * @precondition 		theEquipment != null
+	 * 
+	 * @postcondition 		Player stats are altered from the Equipment
+	 */
 	private void addEquipmentStats(Equipment theEquipment) {
+		if (theEquipment == null) {
+			throw new IllegalArgumentException("theEquipment cannot be null");
+		}
 		this.hp += theEquipment.getHp();
 		this.mp += theEquipment.getMp();
 		this.strength += theEquipment.getStrength();
@@ -215,6 +233,16 @@ public class Player {
 		this.luck += theEquipment.getLuck();
 	}
 	
+	/**
+	 * Helper method that subtracts the stats of the given
+	 * 	Equipment object to the player.
+	 * 
+	 * @param theEquipment	Equipment to gather stats from
+	 * 
+	 * @precondition 		theEquipment != null
+	 * 
+	 * @postcondition 		Player stats are altered from the Equipment
+	 */
 	private void subtractEquipmentStats(Equipment theEquipment) {
 		this.hp -= theEquipment.getHp();
 		this.mp -= theEquipment.getMp();

@@ -9,9 +9,10 @@ import java.util.UUID;
  * 	on what the ScreenObject's coordinates are (x, y) and
  *  if the object is currently visible or not. The ScreenObject
  *  also keeps track of a UUID (Unique Identifier).
+ *  
  * @author frankminyon
  *
- * @version 10/2/17
+ * @version 10/19/17
  */
 public class ScreenObject {
 	private Point2D.Double position;
@@ -41,6 +42,7 @@ public class ScreenObject {
 	 * This constructor will create the ScreenObject and
 	 *	make the object's x position, positionX and the 
 	 *	y position, positionY and the visibility, visible.
+	 *
 	 * @param positionX 	double containing x position
 	 * @param positionY	double containing y position
 	 * @param visible 	boolean determining if object is visible
@@ -155,6 +157,7 @@ public class ScreenObject {
 	
 	/**
 	 * Sets the x position
+	 * 
 	 * @param positionX 	double containing x position
 	 * 
 	 * @precondition 	none
@@ -168,6 +171,7 @@ public class ScreenObject {
 	
 	/**
 	 * Sets the y position
+	 * 
 	 * @param positionY 	double containing y position
 	 * 
 	 * @precondition 	none
@@ -181,6 +185,7 @@ public class ScreenObject {
 	
 	/**
 	 * Sets the x and y position
+	 * 
 	 * @param positionX	double containing x position
 	 * @param positionY 	double containing y position
 	 * 
@@ -196,6 +201,7 @@ public class ScreenObject {
 	
 	/**
 	 * Sets the visibility
+	 * 
 	 * @param visibility	boolean containing visibility
 	 * 
 	 * @precondition 	none
@@ -208,6 +214,7 @@ public class ScreenObject {
 	
 	/**
 	 * Sets the id
+	 * 
 	 * @param id			String containing the id
 	 * 
 	 * @precondition 	id != nul
@@ -224,6 +231,7 @@ public class ScreenObject {
 	/**
 	 * Determines if the ScreenObjects are equal by comparing their
 	 * 	coordinates and their visibility
+	 * 
 	 * @param otherObject 	ScreenObject to compare
 	 * 
 	 * @precondition 		none

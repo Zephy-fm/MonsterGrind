@@ -3,9 +3,10 @@ package model;
 /**
  * Equipment is an abstract class that acts as the
  * 	superclass for all equip-able items.
+ * 
  * @author frankminyon
  *
- * @version 10/11/17
+ * @version 10/19/17
  */
 public abstract class Equipment {
 	private String id;
@@ -165,6 +166,13 @@ public abstract class Equipment {
 		return this.buyPrice;
 	}
 
+	/**
+	 * Generates a description of the Equipment object and returns it
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @return 			String with Equipment object description
+	 */
 	@Override
 	public String toString() {
 		return "Equipment [id=" + this.id + ", name=" + this.name + ", description=" + this.description + ", hp=" + this.hp + ", "
