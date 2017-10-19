@@ -42,7 +42,7 @@ public class Armor extends Equipment {
 				+ "\n->intellect: " + super.getIntellect()
 				+ "\n->defense: " + super.getDefense()
 				+ "\n->luck: " + super.getLuck()
-				+ "\n->special: " + super.getSpecial()
+				+ "\n->enchant: " + super.getEnchant()
 				+ "\n->sell price: " + super.getSellPrice()
 				+ "\n->buy price: " + super.getBuyPrice();
 	}

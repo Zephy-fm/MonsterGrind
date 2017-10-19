@@ -19,7 +19,7 @@ public abstract class Equipment {
 	private int intellect;
 	private int defense;
 	private int luck;
-	private String special;
+	private String enchant;
 	private int sellPrice;
 	private int buyPrice;
 	
@@ -134,14 +134,14 @@ public abstract class Equipment {
 	}
 
 	/**
-	 * Gets the Equipment's special and returns it
+	 * Gets the Equipment's Enchant and returns it
 	 * 
 	 * @precondition 	none
 	 * 
-	 * @return 			String containing the Equipment's special
+	 * @return 			String containing the Equipment's Enchant
 	 */
-	public String getSpecial() {
-		return this.special;
+	public String getEnchant() {
+		return this.enchant;
 	}
 
 	/**
@@ -177,7 +177,7 @@ public abstract class Equipment {
 	public String toString() {
 		return "Equipment [id=" + this.id + ", name=" + this.name + ", description=" + this.description + ", hp=" + this.hp + ", "
 				+ "mp=" + this.mp + ", strength=" + this.strength + ", dexterity=" + this.dexterity + ", intellect=" 
-				+ this.intellect + ", defense=" + this.defense + ", luck=" + this.luck + ", special=" + this.special + ", sellPrice=" 
+				+ this.intellect + ", defense=" + this.defense + ", luck=" + this.luck + ", enchant=" + this.enchant + ", sellPrice=" 
 				+ this.sellPrice + ", buyPrice=" + this.buyPrice + "]";
 	}
 }

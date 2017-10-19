@@ -1,4 +1,23 @@
 {
+	"wep0" : {
+		"id" : "wep0",
+		"name" : "None",
+		"description" : "Nothing is equipped",
+		"hp" : 0,
+		"mp" : 0,
+		"strength" : 0,
+		"dexterity" : 0,
+		"intellect" : 0,
+		"defense" : 0,
+		"luck" : 0,
+		"special" : "none",
+		"sellPrice" : 0,
+		"buyPrice" : 0,
+		"attackPower" : 0,
+		"magicPower" : 0,
+		"attackType" : "none",
+		"attackMehod" : "none"
+	},
 	"wep1" : {
 		"id" : "wep1",
 		"name" : "Dull Sword",

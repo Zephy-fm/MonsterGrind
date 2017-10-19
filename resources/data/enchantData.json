@@ -1,0 +1,26 @@
+{
+	"enc1" : {
+		"id" : "spc1",
+		"name" : "Magic Residue",
+		"description" : "Chance for bonus magic damage & MP return when attacking.",
+		"chance" : 0.50,
+		"bonusDamageFlat" : 3,
+		"bonusDamageMultiplier" : 0.00,
+		"heal" : 0.00,
+		"selfDamage" : 0.00,
+		"mpReturn" : 0.05,
+		"mpBurn" : 0.00
+	},
+	"enc2" : {
+		"id" : "spc2",
+		"name" : "Double Jab",
+		"description" : "Chance to do double damage when attacking.",
+		"chance": 0.25,
+		"bonusDamageFlat" : 0,
+		"bonusDamageMultiplier" : 2.00,
+		"heal" : 0.00,
+		"selfDamage" : 0.00,
+		"mpReturn" : 0.00,
+		"mpBurn" : 0.00
+	}
+}
