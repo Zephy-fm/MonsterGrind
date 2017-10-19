@@ -1,5 +1,7 @@
 package model;
 
+import view.ApplicationController;
+
 /**
  * Player keeps track of all Player data.
  * 	Players should be created from existing data.
@@ -8,7 +10,6 @@ package model;
  * @version 10/11/17
  */
 public class Player {
-	private JSONDataController jsonDataController;
 	private String name;
 	private int level;
 	private int hp;
@@ -34,30 +35,23 @@ public class Player {
 	 * 
 	 * @precondition 	none
 	 * 
-	 * @postcondition 	name == null
-	 * 					all stats == 0
-	 * 					equipment == null
+	 * @postcondition 	Player is ready for setup
 	 */
 	public Player() {
 		return;
 	}
 	
 	/**
-	 * This function needs to be run after variables are initialized
-	 * @param jsonDataController 	JSONDataController passed down
+	 * Prepares the Player for game interaction
 	 * 
-	 * @precondition 	jsonDataController != null
-	 * 					Player weapon id != null
+	 * @precondition 	Player weapon id != null
 	 * 					Player armor id != null
 	 * 					Player accessory 1 id != null
 	 * 					Player accessory 2 id != null
 	 * 
-	 * @postcondition 	Player ready for game interaction
+	 * @postcondition 	Player is ready for game interaction
 	 */
-	public void setup(JSONDataController jsonDataController) {
-		if (jsonDataController == null) {
-			throw new IllegalArgumentException("jsonDataController cannot be null");
-		}
+	public void setup() {
 		if (this.weaponID == null) {
 			throw new IllegalArgumentException("weapon id cannot be null");
 		}
@@ -70,8 +64,7 @@ public class Player {
 		if (this.accessory2ID == null) {
 			throw new IllegalArgumentException("accessory 2 id cannot be null");
 		}
-		this.jsonDataController = jsonDataController;
-		this.equipmentManager = new EquipmentManager(jsonDataController, this.weaponID, 
+		this.equipmentManager = new EquipmentManager(this.weaponID, 
 				this.armorID, this.accessory1ID, this.accessory2ID);
 		this.update();
 	}
@@ -98,9 +91,9 @@ public class Player {
 	 * @postcondition 	Player's offensive power is updated
 	 */
 	public void update() {
-		updateAttackPower();
-		updateMagicPower();
-		updateCriticalChance();
+		this.updateAttackPower();
+		this.updateMagicPower();
+		this.updateCriticalChance();
 	}
 
 	/**
@@ -144,17 +137,17 @@ public class Player {
 	 * Gives the Player the stats associated with the given Level
 	 * 	parameter and resets the Player's experience to 0. The
 	 * 	experience needed to level up is also updated.
-	 * @param levelInformation 	Level containing information about the level up
-	 * 
-	 * @precondition 			levelInformation != null
+	 *
+	 * @precondition 			data for the next level must be in the data files
 	 * 
 	 * @postcondition 			Player stats updated with next Level information
 	 * 							Player experience will be 0
 	 * 							Player's needed experience to next is updated
 	 */
-	public void levelUp(Level levelInformation) {
+	public void levelUp() {
+		Level levelInformation = ApplicationController.JSONDATACONTROLLER.getLevel(this.level);
 		if (levelInformation == null) {
-			throw new IllegalArgumentException("levelInformation cannot be null");
+			throw new IllegalArgumentException("Could not retrieve level data for levelup from LEVEL" + this.level);
 		}
 		this.level++;
 		this.hp += levelInformation.getHp();
@@ -187,8 +180,7 @@ public class Player {
 		int totalExperience = this.experience + awardedExperience;
 		if (totalExperience > this.experienceToLevelUp) {
 			int remainingExperience = totalExperience - this.experienceToLevelUp;
-			Level nextLevel = this.jsonDataController.getLevel(this.level);
-			this.levelUp(nextLevel);
+			this.levelUp();
 			this.giveExperience(remainingExperience);
 		} else {
 			this.experience += awardedExperience;

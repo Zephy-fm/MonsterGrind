@@ -42,6 +42,8 @@ public class JSONDataController {
 		}
 		this.weaponList = new HashMap<String, Weapon>();
 		this.levelList = new HashMap<Integer, Level>();
+		
+		this.loadAllData();
 	}
 	
 	/**
@@ -117,7 +119,7 @@ public class JSONDataController {
 		for (Map.Entry<String, JsonElement> current : levelTree.entrySet()) {
 			JsonObject levelArray = current.getValue().getAsJsonObject();
 			Level parsedLevel = gson.fromJson(levelArray, Level.class);
-			addLevel(parsedLevel);
+			this.addLevel(parsedLevel);
 		}
 	}
 	

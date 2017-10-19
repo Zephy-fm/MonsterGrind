@@ -10,7 +10,7 @@ import model.Player;
  * @version 10/11/17
  */
 public class ApplicationController {
-	private JSONDataController jsonDataController;
+	public static final JSONDataController JSONDATACONTROLLER = new JSONDataController();
 	private Player thePlayer;
 
 	/**
@@ -22,11 +22,9 @@ public class ApplicationController {
 	 * @postcondition 	data fields != null
 	 */
 	public ApplicationController() {
-		this.jsonDataController = new JSONDataController();
-		this.jsonDataController.loadAllData();
-		this.thePlayer = this.jsonDataController.loadPlayer();
-		System.out.println("Before Player::setup()\n" + this.thePlayer);
-		this.thePlayer.setup(this.jsonDataController);
+		this.thePlayer = ApplicationController.JSONDATACONTROLLER.loadPlayer();
+		this.thePlayer.setup();
+		System.out.println(this.thePlayer.toString());
 		//this.thePlayer.setup();
 		//System.out.println(this.jsonDataController.get));
 	}
@@ -39,8 +37,7 @@ public class ApplicationController {
 	 * @postcondition 	none
 	 */
 	public void run() {
-		System.out.println("After Player::setup()\n" + this.thePlayer);
-		System.out.println(this.jsonDataController);
+		System.out.println(ApplicationController.JSONDATACONTROLLER);
 	}
 	
 }
