@@ -61,7 +61,7 @@
 	},
 	"enc5" : {
 		"id" : "enc5",
-		"name" : "monkas",
+		"name" : "Pantheon's Embrace",
 		"description" : "100% chance to regenerate 100% of HP, regenerate 100% of MP, and inflict 500% damage when attacking.",
 		"chance": 1.00,
 		"bonusDamageFlat" : 0,

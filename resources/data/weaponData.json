@@ -16,7 +16,7 @@
 		"attackPower" : 0,
 		"magicPower" : 0,
 		"attackType" : "none",
-		"attackMehod" : "none"
+		"attackMethod" : "none"
 	},
 	"wep1" : {
 		"id" : "wep1",
@@ -35,7 +35,7 @@
 		"attackPower" : 1,
 		"magicPower" : 0,
 		"attackType" : "physical",
-		"attackMehod" : "swings"
+		"attackMethod" : "swings"
 	},
 	"wep2" : {
 		"id" : "wep2",
@@ -54,7 +54,7 @@
 		"attackPower" : 0,
 		"magicPower" : 1,
 		"attackType" : "physical",
-		"attackMehod" : "smacks"
+		"attackMethod" : "smacks"
 	},
 	"wep3" : {
 		"id" : "wep3",
@@ -111,7 +111,7 @@
 		"attackPower" : 5,
 		"magicPower" : 0,
 		"attackType" : "physical",
-		"attackMehod" : "slices"
+		"attackMethod" : "slices"
 	},
 	"wep6" : {
 		"id" : "wep6",
@@ -130,7 +130,7 @@
 		"attackPower" : 0,
 		"magicPower" : 7,
 		"attackType" : "physical",
-		"attackMehod" : "smacks"
+		"attackMethod" : "smacks"
 	},
 	"wep7" : {
 		"id" : "wep7",
@@ -149,6 +149,25 @@
 		"attackPower" : 10,
 		"magicPower" : 0,
 		"attackType" : "physical",
-		"attackMehod" : "punches"
+		"attackMethod" : "punches"
+	},
+	"wep666" : {
+		"id" : "wep666",
+		"name" : "Gorshalach",
+		"description" : "A blade torn from fallen Titans.",
+		"hp" : 6666,
+		"mp" : 6666,
+		"strength" :6666,
+		"dexterity" : 6666,
+		"intellect" : 6666,
+		"defense" : 6666,
+		"luck" : 6666,
+		"enchant" : "enc5",
+		"sellPrice" : 1,
+		"buyPrice" : 1,
+		"attackPower" : 6666,
+		"magicPower" : 6666,
+		"attackType" : "physical",
+		"attackMethod" : "obliterates"
 	}
 }

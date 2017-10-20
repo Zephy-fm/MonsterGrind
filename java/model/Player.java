@@ -254,6 +254,17 @@ public class Player {
 	}
 	
 	/**
+	 * Gets the Player's EquipmentManager and returns it
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @return			EquipmentManager of the Player
+	 */
+	public EquipmentManager getEquipmentManager() {
+		return this.equipmentManager;
+	}
+
+	/**
 	 * Gathers the Player information and returns it
 	 * 
 	 * @precondition 	none

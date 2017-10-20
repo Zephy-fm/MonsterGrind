@@ -2,6 +2,7 @@ package view;
 
 import model.JSONDataController;
 import model.Player;
+import model.Weapon;
 
 /**
  * ApplicationController controls the flow of the application
@@ -38,6 +39,13 @@ public class ApplicationController {
 	 */
 	public void run() {
 		System.out.println(ApplicationController.JSONDATACONTROLLER);
+		System.out.println("Equipping Weapon: Gorshalach, wepID: wep666");
+		this.thePlayer.equipWeapon("wep666");
+		System.out.println("Player's new stats:");
+		System.out.println(this.thePlayer);
+		Weapon playerWeapon = this.thePlayer.getEquipmentManager().getWeapon();
+		System.out.println("Description of Player Weapon:");
+		System.out.println(playerWeapon);
 	}
 	
 }

@@ -45,7 +45,7 @@ public class Enchant {
 	 * 
 	 * @return			String containing the Enchant's id
 	 */
-	public String getID() {
+	public String getId() {
 		return this.id;
 	}
 
@@ -152,6 +152,21 @@ public class Enchant {
 	 */
 	public double getMpBurn() {
 		return this.mpBurn;
+	}
+
+	/**
+	 * Generates a description of the Enchant and returns it
+	 * 
+	 * @precondition		none
+	 * 
+	 * @return 			String containing Enchant description
+	 */
+	@Override
+	public String toString() {
+		return "Enchant [id=" + id + ", name=" + name + ", description=" + description + ", chance=" + chance
+				+ ", bonusDamageFlat=" + bonusDamageFlat + ", bonusDamageMultiplier=" + bonusDamageMultiplier
+				+ ", heal=" + heal + ", selfDamage=" + selfDamage + ", mpReturn=" + mpReturn + ", mpBurn=" + mpBurn
+				+ "]";
 	}
 	
 }

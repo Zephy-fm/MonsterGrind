@@ -140,7 +140,7 @@ public abstract class Equipment {
 	 * 
 	 * @return 			String containing the Equipment's Enchant
 	 */
-	public String getEnchant() {
+	public String getEnchantID() {
 		return this.enchant;
 	}
 

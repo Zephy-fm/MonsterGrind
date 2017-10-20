@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 import view.ApplicationController;
 
 /**
@@ -12,7 +14,7 @@ import view.ApplicationController;
  */
 public class EquipmentManager {
 	private Weapon weapon;
-	private Weapon armor;
+	private Armor armor;
 	private Weapon accessory1;
 	private Weapon accessory2;
 	
@@ -34,7 +36,7 @@ public class EquipmentManager {
 	 */
 	public EquipmentManager(String weaponID, String armorID, String accessory1ID, String accessory2ID) {
 		this.weapon = ApplicationController.JSONDATACONTROLLER.getWeapon(weaponID);
-		this.armor = ApplicationController.JSONDATACONTROLLER.getWeapon(weaponID);
+		this.armor = ApplicationController.JSONDATACONTROLLER.getArmor(armorID);
 		this.accessory1 = ApplicationController.JSONDATACONTROLLER.getWeapon(weaponID);
 		this.accessory2 = ApplicationController.JSONDATACONTROLLER.getWeapon(weaponID);
 	}
@@ -92,7 +94,6 @@ public class EquipmentManager {
 	 */
 	public int getAttackPower() {
 		int attackDamageCalc = this.weapon.getAttackPower();
-		attackDamageCalc += this.armor.getAttackPower();
 		attackDamageCalc += this.accessory1.getAttackPower();
 		return attackDamageCalc + this.accessory2.getAttackPower();
 	}
@@ -107,8 +108,34 @@ public class EquipmentManager {
 	 */
 	public int getMagicPower() {
 		int magicDamageCalc = this.weapon.getMagicPower();
-		magicDamageCalc += this.armor.getMagicPower();
 		magicDamageCalc += this.accessory1.getMagicPower();
 		return magicDamageCalc + this.accessory2.getMagicPower();
 	}
+	
+	/**
+	 * Gathers all of the Enchants from the Equipment
+	 * 	and then returns them.
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @return			ArrayList<Enchant> with Equipment Enchants
+	 */
+	public ArrayList<Enchant> getEnchants() {
+		ArrayList<Enchant> enchantList = new ArrayList<Enchant>();
+		
+		String weaponEnchantID = this.weapon.getEnchantID();
+		enchantList.add(ApplicationController.JSONDATACONTROLLER.getEnchant(weaponEnchantID));
+		
+		String armorEnchantID = this.armor.getEnchantID();
+		enchantList.add(ApplicationController.JSONDATACONTROLLER.getEnchant(armorEnchantID));
+		
+		String accessory1EnchantID = this.accessory1.getEnchantID();
+		enchantList.add(ApplicationController.JSONDATACONTROLLER.getEnchant(accessory1EnchantID));
+		
+		String accessory2EnchantID = this.accessory2.getEnchantID();
+		enchantList.add(ApplicationController.JSONDATACONTROLLER.getEnchant(accessory2EnchantID));
+		
+		return enchantList;
+	}
+	
 }
