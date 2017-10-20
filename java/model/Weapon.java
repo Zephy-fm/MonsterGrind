@@ -93,8 +93,8 @@ public class Weapon extends Equipment {
 				+ "\n->defense: " + super.getDefense()
 				+ "\n->luck: " + super.getLuck()
 				+ "\n->enchant: " + super.getEnchantID()
-				+ "\n->->enchant name: " + ApplicationController.JSONDATACONTROLLER.getEnchant(super.getEnchantID()).getName()
-				+ "\n->->enchant description: " + ApplicationController.JSONDATACONTROLLER.getEnchant(super.getEnchantID()).getDescription()
+				+ "\n--->enchant name: " + ApplicationController.JSONDATACONTROLLER.getEnchant(super.getEnchantID()).getName()
+				+ "\n--->enchant description: " + ApplicationController.JSONDATACONTROLLER.getEnchant(super.getEnchantID()).getDescription()
 				+ "\n->sell price: " + super.getSellPrice()
 				+ "\n->buy price: " + super.getBuyPrice()
 				+ "\n->attack damage: " + this.attackPower
