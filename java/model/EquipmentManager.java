@@ -10,13 +10,13 @@ import view.ApplicationController;
  * 
  * @author FrankMinyon
  *
- * @version 10/19/17
+ * @version 10/24/17
  */
 public class EquipmentManager {
 	private Weapon weapon;
 	private Armor armor;
-	private Weapon accessory1;
-	private Weapon accessory2;
+	private Accessory accessory1;
+	private Accessory accessory2;
 	
 	/**
 	 * Creates an EquipmentManager object with information
@@ -35,10 +35,10 @@ public class EquipmentManager {
 	 * @postcondition 		all equipment item data is loaded and ready
 	 */
 	public EquipmentManager(String weaponID, String armorID, String accessory1ID, String accessory2ID) {
-		this.weapon = ApplicationController.JSONDATACONTROLLER.getWeapon(weaponID);
-		this.armor = ApplicationController.JSONDATACONTROLLER.getArmor(armorID);
-		this.accessory1 = ApplicationController.JSONDATACONTROLLER.getWeapon(weaponID);
-		this.accessory2 = ApplicationController.JSONDATACONTROLLER.getWeapon(weaponID);
+		this.weapon = ApplicationController.GAMEDATA.getWeapon(weaponID);
+		this.armor = ApplicationController.GAMEDATA.getArmor(armorID);
+		this.accessory1 = ApplicationController.GAMEDATA.getAccessory(accessory1ID);
+		this.accessory2 = ApplicationController.GAMEDATA.getAccessory(accessory2ID);
 	}
 	
 	/**
@@ -53,23 +53,23 @@ public class EquipmentManager {
 	}
 	
 	/**
-	 * Equips a weapon provided from the Weapon ID
+	 * Equips a Weapon provided from the Weapon ID
 	 * 
 	 * @param weaponID 	String containing the Weapon ID
 	 * 
 	 * @precondition 	weaponID != null
 	 * 
-	 * @postcondition 	getWeapon() == weapon from weaponID
+	 * @postcondition 	getWeapon() == Weapon from weaponID
 	 */
 	public void equipWeapon(String weaponID) {
 		if (weaponID == null) {
 			throw new IllegalArgumentException("weaponID cannot be null");
 		}
-		this.weapon = ApplicationController.JSONDATACONTROLLER.getWeapon(weaponID);
+		this.weapon = ApplicationController.GAMEDATA.getWeapon(weaponID);
 	}
 	
 	/**
-	 * Equips a Weapon provided in the parameters
+	 * Equips the Weapon provided in the parameters
 	 * 
 	 * @param theWeapon	Weapon to equip over the current Weapon
 	 * 
@@ -82,6 +82,106 @@ public class EquipmentManager {
 			throw new IllegalArgumentException("theWeapon cannot be null");
 		}
 		this.weapon = theWeapon;
+	}
+	
+	/**
+	 * Equips Armor provided from the Armor ID
+	 * 
+	 * @param armorID 	String containing the Armor ID
+	 * 
+	 * @precondition 	armorID != null
+	 * 
+	 * @postcondition 	getArmor() == Armor from armorID
+	 */
+	public void equipArmor(String armorID) {
+		if (armorID == null) {
+			throw new IllegalArgumentException("armorID cannot be null");
+		}
+		this.armor = ApplicationController.GAMEDATA.getArmor(armorID);
+	}
+	
+	/**
+	 * Equips the Armor provided in the parameters
+	 * 
+	 * @param theArmor	Armor to equip over the current Armor
+	 * 
+	 * @precondition 	theArmor != null
+	 * 
+	 * @postcondition 	getArmor() == theArmor
+	 */
+	public void equipArmor(Armor theArmor) {
+		if (theArmor == null) {
+			throw new IllegalArgumentException("theArmor cannot be null");
+		}
+		this.armor = theArmor;
+	}
+	
+	/**
+	 * Equips a Accessory provided from the Accessory ID
+	 * 	into the Accessory1 slot
+	 * 
+	 * @param accessoryID 	String containing the Accessory ID
+	 * 
+	 * @precondition 		accessoryID != null
+	 * 
+	 * @postcondition 		getAccessory1() == Accessory from accessoryID
+	 */
+	public void equipAccessory1(String accessoryID) {
+		if (accessoryID == null) {
+			throw new IllegalArgumentException("accessoryID cannot be null");
+		}
+		this.accessory1 = ApplicationController.GAMEDATA.getAccessory(accessoryID);
+	}
+	
+	/**
+	 * Equips the Accessory provided in the parameters
+	 * 	into the Accessory1 slot
+	 * 
+	 * @param theAccessory	Accessory to equip over the current Accessory1
+	 * 
+	 * @precondition 		theAccessory != null
+	 * 
+	 * @postcondition 		getAccessory1() == theAccessory
+	 */
+	public void equipAccessory1(Accessory theAccessory) {
+		if (theAccessory == null) {
+			throw new IllegalArgumentException("theAccessory cannot be null");
+		}
+		this.accessory1 = theAccessory;
+	}
+	
+	/**
+	 * Equips a Accessory provided from the Accessory ID
+	 * 	into the Accessory2 slot
+	 * 
+	 * @param accessoryID 	String containing the Accessory ID
+	 * 
+	 * @precondition 		accessoryID != null
+	 * 
+	 * @postcondition 		getAccessory2() == Accessory from accessoryID
+	 */
+	public void equipAccessory2(String accessoryID) {
+		if (accessoryID == null) {
+			throw new IllegalArgumentException("accessoryID cannot be null");
+		}
+		this.accessory2 = ApplicationController.GAMEDATA.getAccessory(accessoryID);
+	}
+	
+	/**
+	 * Equips the Accessory provided in the parameters
+	 * 	into the Accessory2 slot
+	 * 
+	 * @param theAccessory	Accessory to equip over the current Accessory2
+	 * 
+	 * @precondition 		theAccessory != null
+	 * 
+	 * @postcondition 		getAccessory2() == theAccessory
+	 */
+	public void equipAccessory2(Accessory theAccessory) {
+		if (theAccessory == null) {
+			throw new IllegalArgumentException("theAccessory cannot be null");
+		}
+		this.accessory2 = theAccessory;
 	}
 	
 	/**
@@ -102,9 +202,9 @@ public class EquipmentManager {
 	 * Calculates the total magic power provided from
 	 * 	all of the Equipment in the EquipmentManager
 	 * 
-	 * @precondtion 	none
+	 * @precondition 	none
 	 * 
-	 * @return		int containing total magic power
+	 * @return			int containing total magic power
 	 */
 	public int getMagicPower() {
 		int magicDamageCalc = this.weapon.getMagicPower();
@@ -124,16 +224,16 @@ public class EquipmentManager {
 		ArrayList<Enchant> enchantList = new ArrayList<Enchant>();
 		
 		String weaponEnchantID = this.weapon.getEnchantID();
-		enchantList.add(ApplicationController.JSONDATACONTROLLER.getEnchant(weaponEnchantID));
+		enchantList.add(ApplicationController.GAMEDATA.getEnchant(weaponEnchantID));
 		
 		String armorEnchantID = this.armor.getEnchantID();
-		enchantList.add(ApplicationController.JSONDATACONTROLLER.getEnchant(armorEnchantID));
+		enchantList.add(ApplicationController.GAMEDATA.getEnchant(armorEnchantID));
 		
 		String accessory1EnchantID = this.accessory1.getEnchantID();
-		enchantList.add(ApplicationController.JSONDATACONTROLLER.getEnchant(accessory1EnchantID));
+		enchantList.add(ApplicationController.GAMEDATA.getEnchant(accessory1EnchantID));
 		
 		String accessory2EnchantID = this.accessory2.getEnchantID();
-		enchantList.add(ApplicationController.JSONDATACONTROLLER.getEnchant(accessory2EnchantID));
+		enchantList.add(ApplicationController.GAMEDATA.getEnchant(accessory2EnchantID));
 		
 		return enchantList;
 	}
