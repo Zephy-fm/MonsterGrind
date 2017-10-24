@@ -33,7 +33,6 @@ public class TUIView {
 	 */
 	public void run() {
 		parse("Welcome to Monster Grind!");
-		
 	}
 
 	private void parse(String message) {

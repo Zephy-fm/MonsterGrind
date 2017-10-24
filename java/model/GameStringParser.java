@@ -1,7 +1,5 @@
 package model;
 
-import java.util.regex.Pattern;
-
 /**
  * GameStringParser will take any Strings
  * 	that are going to be printed to the console 
@@ -56,31 +54,36 @@ public class GameStringParser {
 		boolean loopChecker = message.contains("$$");
 		String editedMessage = message;
 		while (loopChecker) {
-			editedMessage = this.pName(editedMessage);
-			editedMessage = this.pLvl(editedMessage);
-			editedMessage = this.pHp(editedMessage);
-			editedMessage = this.pMp(editedMessage);
-			editedMessage = this.pStr(editedMessage);
-			editedMessage = this.pDex(editedMessage);
-			editedMessage = this.pInt(editedMessage);
-			editedMessage = this.pDef(editedMessage);
-			editedMessage = this.pLuck(editedMessage);
-			editedMessage = this.pAttp(editedMessage);
-			editedMessage = this.pMgkp(editedMessage);
-			editedMessage = this.pCrit(editedMessage);
-			editedMessage = this.pExp(editedMessage);
-			editedMessage = this.pExplvl(editedMessage);
-			editedMessage = this.pWepid(editedMessage);
-			editedMessage = this.pWep(editedMessage);
-			editedMessage = this.pArmid(editedMessage);
-			editedMessage = this.pArm(editedMessage);
-			editedMessage = this.pAcc1id(editedMessage);
-			editedMessage = this.pAcc1(editedMessage);
-			editedMessage = this.pAcc2id(editedMessage);
-			editedMessage = this.pAcc2(editedMessage);
+			editedMessage = parsePlayer(editedMessage);
 			editedMessage = this.checkForBadDataPlaceholders(editedMessage);
 			loopChecker = editedMessage.contains("$$");
 		}
+		return editedMessage;
+	}
+
+	private String parsePlayer(String editedMessage) {
+		editedMessage = this.pName(editedMessage);
+		editedMessage = this.pLvl(editedMessage);
+		editedMessage = this.pHp(editedMessage);
+		editedMessage = this.pMp(editedMessage);
+		editedMessage = this.pStr(editedMessage);
+		editedMessage = this.pDex(editedMessage);
+		editedMessage = this.pInt(editedMessage);
+		editedMessage = this.pDef(editedMessage);
+		editedMessage = this.pLuck(editedMessage);
+		editedMessage = this.pAttp(editedMessage);
+		editedMessage = this.pMgkp(editedMessage);
+		editedMessage = this.pCrit(editedMessage);
+		editedMessage = this.pExp(editedMessage);
+		editedMessage = this.pExplvl(editedMessage);
+		editedMessage = this.pWepid(editedMessage);
+		editedMessage = this.pWep(editedMessage);
+		editedMessage = this.pArmid(editedMessage);
+		editedMessage = this.pArm(editedMessage);
+		editedMessage = this.pAcc1id(editedMessage);
+		editedMessage = this.pAcc1(editedMessage);
+		editedMessage = this.pAcc2id(editedMessage);
+		editedMessage = this.pAcc2(editedMessage);
 		return editedMessage;
 	}
 

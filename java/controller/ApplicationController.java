@@ -46,6 +46,14 @@ public class ApplicationController {
 		return this.parser.parse(message);
 	}
 	
+	/**
+	 * This method is purely for testing functionality. 
+	 * 	This method will be deleted later.
+	 * 
+	 * @precondition		none
+	 * 
+	 * @postcondition 	methods tested
+	 */
 	public void test() {
 		this.thePlayer.equipWeapon("wep7");
 		ApplicationController.GAMEDATA.save(this.thePlayer);
