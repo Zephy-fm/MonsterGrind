@@ -1,17 +1,1 @@
-{
-	"name" : "player",
-	"hp" : 15,
-	"mp" : 10,
-	"strength" : 3,
-	"dexterity" : 3,
-	"intellect" : 3,
-	"defense" : 3,
-	"luck" : 3,
-	"level": 1,
-	"experience" : 0,
-	"experienceToLevelUp" : 100,
-	"weaponID" : "wep0",
-	"armorID" : "arm0",
-	"accessory1ID" : "acc0",
-	"accessory2ID" : "acc0"
-	}
+{"name":"player","level":1,"maxHp":45,"currentHp":15,"maxMp":10,"currentMp":10,"strength":3,"dexterity":23,"intellect":3,"defense":3,"luck":17,"attackPower":21,"magicPower":3,"criticalChance":21,"experience":0,"experienceToLevelUp":100,"weaponID":"wep0","armorID":"arm0","accessory1ID":"acc0","accessory2ID":"acc0","equipmentManager":{"weapon":{"attackPower":10,"magicPower":0,"attackType":"physical","attackMethod":"punches","id":"wep7","name":"Brass Knuckles","description":"Painful weapon for the hands. You might even use both of them!","hp":15,"mp":0,"strength":0,"dexterity":10,"intellect":0,"defense":0,"luck":7,"enchant":"enc2","sellPrice":400,"buyPrice":1200},"armor":{"id":"arm0","name":"None","description":"Nothing is equipped.","hp":0,"mp":0,"strength":0,"dexterity":0,"intellect":0,"defense":0,"luck":0,"enchant":"enc0","sellPrice":0,"buyPrice":0},"accessory1":{"attackPower":0,"magicPower":0,"criticalChance":0,"id":"acc0","name":"None","description":"Nothing is equipped.","hp":0,"mp":0,"strength":0,"dexterity":0,"intellect":0,"defense":0,"luck":0,"enchant":"enc0","sellPrice":0,"buyPrice":0},"accessory2":{"attackPower":0,"magicPower":0,"criticalChance":0,"id":"acc0","name":"None","description":"Nothing is equipped.","hp":0,"mp":0,"strength":0,"dexterity":0,"intellect":0,"defense":0,"luck":0,"enchant":"enc0","sellPrice":0,"buyPrice":0}}}

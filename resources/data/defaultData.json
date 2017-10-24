@@ -1,8 +1,10 @@
 {
 	"Player" : {
 		"name" : "player",
-		"hp" : 15,
-		"mp" : 10,
+		"maxHp" : 15,
+		"currentHp" : 15,
+		"maxMp" : 10,
+		"currentMp" : 10,
 		"strength" : 3,
 		"dexterity" : 3,
 		"intellect" : 3,
@@ -11,10 +13,10 @@
 		"level": 1,
 		"experience" : 0,
 		"experienceToLevelUp" : 100,
-		"weaponID" : "wep1",
-		"armorID" : "arm1",
-		"accessory1ID" : "1acc1",
-		"accessory2ID" : "2acc1"
+		"weaponID" : "wep0",
+		"armorID" : "arm0",
+		"accessory1ID" : "acc0",
+		"accessory2ID" : "acc0"
 	},
 	"Equipment" : {
 		"id" : 0,

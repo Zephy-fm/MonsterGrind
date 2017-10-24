@@ -1,9 +1,9 @@
 package driver;
 
-import controller.ApplicationController;
+import view.TUIView;
 
 /**
- * Driver contains the main() method and runs the GameController
+ * Driver contains the main() method and runs the TUIView
  * 
  * @author frankminyon
  *
@@ -21,8 +21,8 @@ public class Driver {
 	 * @postcondition 	none
 	 */
 	public static void main(String[] args) {
-		ApplicationController controller = new ApplicationController();
-		controller.run();
+		TUIView tui = new TUIView();
+		tui.run();
 	}
 	
 }

@@ -1,5 +1,6 @@
 package controller;
 
+import model.GameStringParser;
 import model.JSONDataController;
 import model.Player;
 
@@ -13,6 +14,7 @@ import model.Player;
 public class ApplicationController {
 	public static final JSONDataController GAMEDATA = new JSONDataController();
 	private Player thePlayer;
+	private GameStringParser parser;
 
 	/**
 	 * Constructs the ApplicationController and prepares its
@@ -25,20 +27,28 @@ public class ApplicationController {
 	public ApplicationController() {
 		this.thePlayer = ApplicationController.GAMEDATA.loadPlayer();
 		this.thePlayer.setup();
-		System.out.println(this.thePlayer.toString());
-		//this.thePlayer.setup();
-		//System.out.println(this.jsonDataController.get));
+		this.parser = new GameStringParser(this.thePlayer);
 	}
 	
 	/**
-	 * Starts the application's functionality
+	 * Parses a String with the GameStringParser
 	 * 
-	 * @precondition 	none
+	 * @param message 	String to parse
 	 * 
-	 * @postcondition 	none
+	 * @precondition 	message != null
+	 * 
+	 * @return			String post-parse
 	 */
-	public void run() {
-		System.out.println(ApplicationController.GAMEDATA);
+	public String parse(String message) {
+		if (message == null) {
+			throw new IllegalArgumentException("message cannot be null");
+		}
+		return this.parser.parse(message);
+	}
+	
+	public void test() {
+		this.thePlayer.equipWeapon("wep7");
+		ApplicationController.GAMEDATA.save(this.thePlayer);
 	}
 	
 }

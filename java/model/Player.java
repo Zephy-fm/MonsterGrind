@@ -13,8 +13,10 @@ import controller.ApplicationController;
 public class Player {
 	private String name;
 	private int level;
-	private int hp;
-	private int mp;
+	private int maxHp;
+	private int currentHp;
+	private int maxMp;
+	private int currentMp;
 	private int strength;
 	private int dexterity;
 	private int intellect;
@@ -173,8 +175,8 @@ public class Player {
 			throw new IllegalArgumentException("Could not retrieve level data for levelup from Level" + this.level);
 		}
 		this.level++;
-		this.hp += levelInformation.getHp();
-		this.mp += levelInformation.getMp();
+		this.maxHp += levelInformation.getHp();
+		this.maxMp += levelInformation.getMp();
 		this.strength += levelInformation.getStrength();
 		this.dexterity += levelInformation.getDexterity();
 		this.intellect += levelInformation.getIntellect();
@@ -348,8 +350,8 @@ public class Player {
 					+ "\nThis exception usually means that the the equipment trying to be"
 					+ "\nreferenced had a bad ID during the data retrieval phase but somehow wasn't caught.");
 		}
-		this.hp -= theEquipment.getHp();
-		this.mp -= theEquipment.getMp();
+		this.maxHp -= theEquipment.getHp();
+		this.maxMp -= theEquipment.getMp();
 		this.strength -= theEquipment.getStrength();
 		this.dexterity -= theEquipment.getDexterity();
 		this.intellect -= theEquipment.getIntellect();
@@ -373,8 +375,8 @@ public class Player {
 					+ "\nThis exception usually means that the the equipment trying to be"
 					+ "\nreferenced had a bad ID during the data retrieval phase but somehow wasn't caught.");
 		}
-		this.hp += theEquipment.getHp();
-		this.mp += theEquipment.getMp();
+		this.maxHp += theEquipment.getHp();
+		this.maxMp += theEquipment.getMp();
 		this.strength += theEquipment.getStrength();
 		this.dexterity += theEquipment.getDexterity();
 		this.intellect += theEquipment.getIntellect();
@@ -382,6 +384,226 @@ public class Player {
 		this.luck += theEquipment.getLuck();
 	}
 	
+	/**
+	 * Gets the name for the Player
+	 *
+	 * @precondition 	none
+	 *
+	 * @return			Player containing the Player's name
+	 */
+	public String getName() {
+		return this.name;
+	}
+
+	/**
+	 * Gets the level for the Player
+	 *
+	 * @precondition 	none
+	 *
+	 * @return			Player containing the Player's level
+	 */
+	public int getLevel() {
+		return this.level;
+	}
+
+	/**
+	 * Gets the max hp for the Player
+	 *
+	 * @precondition 	none
+	 *
+	 * @return			Player containing the Player's hp
+	 */
+	public int getMaxHp() {
+		return this.maxHp;
+	}
+
+	/**
+	 * Gets the current hp for the Player
+	 *
+	 * @precondition 	none
+	 *
+	 * @return			Player containing the Player's hp
+	 */
+	public int getCurrentHp() {
+		return this.currentHp;
+	}
+
+	/**
+	 * Gets the max mp for the Player
+	 *
+	 * @precondition 	none
+	 *
+	 * @return			Player containing the Player's mp
+	 */
+	public int getMaxMp() {
+		return this.maxMp;
+	}
+
+	/**
+	 * Gets the current mp for the Player
+	 *
+	 * @precondition 	none
+	 *
+	 * @return			Player containing the Player's mp
+	 */
+	public int getCurrentMp() {
+		return this.currentMp;
+	}
+
+	/**
+	 * Gets the strength for the Player
+	 *
+	 * @precondition 	none
+	 *
+	 * @return			Player containing the Player's strength
+	 */
+	public int getStrength() {
+		return this.strength;
+	}
+
+	/**
+	 * Gets the dexterity for the Player
+	 *
+	 * @precondition 	none
+	 *
+	 * @return			Player containing the Player's dexterity
+	 */
+	public int getDexterity() {
+		return this.dexterity;
+	}
+
+	/**
+	 * Gets the intellect for the Player
+	 *
+	 * @precondition 	none
+	 *
+	 * @return			Player containing the Player's intellect
+	 */
+	public int getIntellect() {
+		return this.intellect;
+	}
+
+	/**
+	 * Gets the defense for the Player
+	 *
+	 * @precondition 	none
+	 *
+	 * @return			Player containing the Player's defense
+	 */
+	public int getDefense() {
+		return this.defense;
+	}
+
+	/**
+	 * Gets the luck for the Player
+	 *
+	 * @precondition 	none
+	 *
+	 * @return			Player containing the Player's luck
+	 */
+	public int getLuck() {
+		return this.luck;
+	}
+
+	/**
+	 * Gets the attackPower for the Player
+	 *
+	 * @precondition 	none
+	 *
+	 * @return			Player containing the Player's attackPower
+	 */
+	public int getAttackPower() {
+		return this.attackPower;
+	}
+
+	/**
+	 * Gets the magicPower for the Player
+	 *
+	 * @precondition 	none
+	 *
+	 * @return			Player containing the Player's magicPower
+	 */
+	public int getMagicPower() {
+		return this.magicPower;
+	}
+
+	/**
+	 * Gets the criticalChance for the Player
+	 *
+	 * @precondition 	none
+	 *
+	 * @return			Player containing the Player's criticalChance
+	 */
+	public int getCriticalChance() {
+		return this.criticalChance;
+	}
+
+	/**
+	 * Gets the experience for the Player
+	 *
+	 * @precondition 	none
+	 *
+	 * @return			Player containing the Player's experience
+	 */
+	public int getExperience() {
+		return this.experience;
+	}
+
+	/**
+	 * Gets the experienceToLevelUp for the Player
+	 *
+	 * @precondition 	none
+	 *
+	 * @return			Player containing the Player's experienceToLevelUp
+	 */
+	public int getExperienceToLevelUp() {
+		return this.experienceToLevelUp;
+	}
+
+	/**
+	 * Gets the weaponID for the Player
+	 *
+	 * @precondition 	none
+	 *
+	 * @return			Player containing the Player's weaponID
+	 */
+	public String getWeaponID() {
+		return this.weaponID;
+	}
+
+	/**
+	 * Gets the armorID for the Player
+	 *
+	 * @precondition 	none
+	 *
+	 * @return			Player containing the Player's armorID
+	 */
+	public String getArmorID() {
+		return this.armorID;
+	}
+
+	/**
+	 * Gets the accessory1ID for the Player
+	 *
+	 * @precondition 	none
+	 *
+	 * @return			Player containing the Player's accessory1ID
+	 */
+	public String getAccessory1ID() {
+		return this.accessory1ID;
+	}
+
+	/**
+	 * Gets the accessory2ID for the Player
+	 *
+	 * @precondition 	none
+	 *
+	 * @return			Player containing the Player's accessory2ID
+	 */
+	public String getAccessory2ID() {
+		return this.accessory2ID;
+	}
+
 	/**
 	 * Gets the Player's EquipmentManager and returns it
 	 * 
@@ -404,8 +626,10 @@ public class Player {
 		return "Player object with the following attributes:"
 				+ "\n->name: " + this.name
 				+ "\n->level: " + this.level
-				+ "\n->hp: " + this.hp
-				+ "\n->mp: " + this.mp
+				+ "\n->max hp: " + this.maxHp
+				+ "\n->current hp: " + this.currentHp
+				+ "\n->max mp: " + this.maxMp
+				+ "\n->current mp: " + this.currentMp
 				+ "\n->strength: " + this.strength
 				+ "\n->dexterity: " + this.dexterity
 				+ "\n->intellect: " + this.intellect

@@ -2,11 +2,15 @@ package model;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.Reader;
+import java.io.Writer;
 import java.util.HashMap;
 import java.util.Map;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
@@ -85,6 +89,27 @@ public class JSONDataController {
 	public Player loadPlayer() {
 		Gson gson = new Gson();
 		return gson.fromJson(this.playerData, Player.class);
+	}
+	
+	/**
+	 * Saves the character data to local files
+	 * 
+	 * @param thePlayer 	Player to save
+	 * 
+	 * @precondition 	thePlayer != null
+	 * 
+	 * @postcondition 	game data is saved
+	 */
+	public void save(Player thePlayer) {
+		if (thePlayer == null) {
+			throw new IllegalArgumentException("thePlayer cannot be null");
+		}
+		try (Writer writer = new FileWriter("resources/data/playerData.json")) {
+			Gson gson = new GsonBuilder().create();
+			gson.toJson(thePlayer, writer);
+		} catch (IOException error) {
+			error.printStackTrace();
+		}
 	}
 	
 	
