@@ -2,16 +2,16 @@ package view;
 
 import model.JSONDataController;
 import model.Player;
-import model.Weapon;
 
 /**
  * ApplicationController controls the flow of the application
+ * 
  * @author frankminyon
  *
- * @version 10/11/17
+ * @version 10/24/17
  */
 public class ApplicationController {
-	public static final JSONDataController JSONDATACONTROLLER = new JSONDataController();
+	public static final JSONDataController GAMEDATA = new JSONDataController();
 	private Player thePlayer;
 
 	/**
@@ -23,7 +23,7 @@ public class ApplicationController {
 	 * @postcondition 	data fields != null
 	 */
 	public ApplicationController() {
-		this.thePlayer = ApplicationController.JSONDATACONTROLLER.loadPlayer();
+		this.thePlayer = ApplicationController.GAMEDATA.loadPlayer();
 		this.thePlayer.setup();
 		System.out.println(this.thePlayer.toString());
 		//this.thePlayer.setup();
@@ -38,14 +38,17 @@ public class ApplicationController {
 	 * @postcondition 	none
 	 */
 	public void run() {
-		System.out.println(ApplicationController.JSONDATACONTROLLER);
-		System.out.println("Equipping Weapon: Gorshalach, wepID: wep666");
-		this.thePlayer.equipWeapon("wep666");
-		System.out.println("Player's new stats:");
+		System.out.println(ApplicationController.GAMEDATA);
+		System.out.println("\n\nLets test our ability to add, equip, and unequip objects!");
+		
+		System.out.println("\nEquipping a accessory1 with the id of acc4!");
+		System.out.println(ApplicationController.GAMEDATA.getAccessory("acc4"));
+		this.thePlayer.equipAccessory1("acc4");
+		System.out.println("\nPlayer's new stats:");
 		System.out.println(this.thePlayer);
-		Weapon playerWeapon = this.thePlayer.getEquipmentManager().getWeapon();
-		System.out.println("Description of Player Weapon:");
-		System.out.println(playerWeapon);
+		System.out.println("\nUnequipping the Player's accessory1:");
+		this.thePlayer.unequipAccessory1();
+		System.out.println(this.thePlayer);
 	}
 	
 }

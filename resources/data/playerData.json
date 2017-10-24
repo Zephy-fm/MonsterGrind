@@ -10,8 +10,8 @@
 	"level": 1,
 	"experience" : 0,
 	"experienceToLevelUp" : 100,
-	"weaponID" : "wep1",
-	"armorID" : "arm1",
-	"accessory1ID" : "1acc1",
-	"accessory2ID" : "2acc1"
+	"weaponID" : "wep0",
+	"armorID" : "arm0",
+	"accessory1ID" : "acc0",
+	"accessory2ID" : "acc0"
 	}

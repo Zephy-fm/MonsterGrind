@@ -8,7 +8,7 @@ import view.ApplicationController;
  * 
  * @author frankminyon
  *
- * @version 10/19/17
+ * @version 10/24/17
  */
 public class Player {
 	private String name;
@@ -73,17 +73,6 @@ public class Player {
 	}
 	
 	/**
-	 * Find's what the Player's next level is and returns it
-	 * 
-	 * @precondition 	none
-	 * 
-	 * @return 			int player level + 1
-	 */
-	public int getNextLevel() {
-		return this.level + 1;
-	}
-	
-	/**
 	 * Updates the Player's attack power, 
 	 * 	magic power, and critical chance. This
 	 * 	method is used whenever new equipment is equipped
@@ -98,17 +87,19 @@ public class Player {
 		this.updateMagicPower();
 		this.updateCriticalChance();
 	}
-
+	
 	/**
-	 * Updates the critical chance of the Player
+	 * Updates the attack power of the Player
 	 * 
 	 * @precondition 	none
 	 * 
-	 * @postcondition 	critical chance is current
+	 * @postcondition 	attack power is current
 	 */
-	private void updateCriticalChance() {
-		int calculation = (int) Math.round(this.dexterity * 0.5);
-		this.criticalChance = (int) Math.round(calculation + (this.luck * 0.5));
+	private void updateAttackPower() {
+		int calculation = (int) Math.round(this.strength * 0.7);
+		calculation += (int) Math.round(this.dexterity * 0.4);
+		calculation += this.equipmentManager.getAttackPower();
+		this.attackPower = calculation;
 	}
 
 	/**
@@ -120,51 +111,24 @@ public class Player {
 	 */
 	private void updateMagicPower() {
 		int calculation = this.intellect;
-		this.magicPower = calculation + this.equipmentManager.getMagicPower();
+		calculation += this.equipmentManager.getMagicPower();
+		this.magicPower = calculation;
 	}
 
 	/**
-	 * Updates the attack power of the Player
+	 * Updates the critical chance of the Player
 	 * 
 	 * @precondition 	none
 	 * 
-	 * @postcondition 	attack power is current
+	 * @postcondition 	critical chance is current
 	 */
-	private void updateAttackPower() {
-		int calculation = (int) Math.round(this.strength * 0.7);
-		calculation += 0.5 * this.dexterity;
-		this.attackPower = calculation + this.equipmentManager.getAttackPower();
+	private void updateCriticalChance() {
+		int calculation = (int) Math.round(this.dexterity * 0.5);
+		calculation += (int) Math.round(this.luck * 0.5);
+		calculation += this.equipmentManager.getCriticalChance();
+		this.criticalChance = calculation;
 	}
-	
-	/**
-	 * Gives the Player the stats associated with the given Level
-	 * 	parameter and resets the Player's experience to 0. The
-	 * 	experience needed to level up is also updated.
-	 *
-	 * @precondition 			data for the next level must be in the data files
-	 * 
-	 * @postcondition 			Player stats updated with next Level information
-	 * 							Player experience will be 0
-	 * 							Player's needed experience to next is updated
-	 */
-	public void levelUp() {
-		Level levelInformation = ApplicationController.JSONDATACONTROLLER.getLevel(this.level);
-		if (levelInformation == null) {
-			throw new IllegalArgumentException("Could not retrieve level data for levelup from LEVEL" + this.level);
-		}
-		this.level++;
-		this.hp += levelInformation.getHp();
-		this.mp += levelInformation.getMp();
-		this.strength += levelInformation.getStrength();
-		this.dexterity += levelInformation.getDexterity();
-		this.intellect += levelInformation.getIntellect();
-		this.defense += levelInformation.getDefense();
-		this.luck += levelInformation.getLuck();
-		this.experienceToLevelUp = levelInformation.getExperienceToLevelUp();
-		this.experience = 0;
-		this.update();
-	}
-	
+
 	/**
 	 * Gives a Player a specified amount of experience. The Player
 	 * 	will level up if the Player's collective experience is greater
@@ -176,6 +140,7 @@ public class Player {
 	 * 
 	 * @postcondition 			Player experience += awardedExperience
 	 * 							Level up if collective experience is high enough
+	 * 							current experience == excess experience from Level up
 	 */
 	public void giveExperience(int awardedExperience) {
 		if (awardedExperience < 0) {
@@ -190,7 +155,47 @@ public class Player {
 			this.experience += awardedExperience;
 		}
 	}
-	
+
+	/**
+	 * Gives the Player the stats associated with their given Level
+	 * 	and resets the Player's experience to 0. The
+	 * 	experience needed to level up is also updated.
+	 *
+	 * @precondition 			data for the next level must be in the data files
+	 * 
+	 * @postcondition 			Player stats updated with next Level information
+	 * 							Player experience will be 0
+	 * 							Player's needed experience to next is updated
+	 */
+	public void levelUp() {
+		Level levelInformation = ApplicationController.GAMEDATA.getLevel(this.level);
+		if (levelInformation == null) {
+			throw new IllegalArgumentException("Could not retrieve level data for levelup from Level" + this.level);
+		}
+		this.level++;
+		this.hp += levelInformation.getHp();
+		this.mp += levelInformation.getMp();
+		this.strength += levelInformation.getStrength();
+		this.dexterity += levelInformation.getDexterity();
+		this.intellect += levelInformation.getIntellect();
+		this.defense += levelInformation.getDefense();
+		this.luck += levelInformation.getLuck();
+		this.experienceToLevelUp = levelInformation.getExperienceToLevelUp();
+		this.experience = 0;
+		this.update();
+	}
+
+	/**
+	 * Find's what the Player's next level is and returns it
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @return 			int player level + 1
+	 */
+	public int getNextLevel() {
+		return this.level + 1;
+	}
+
 	/**
 	 * Equips a specified Weapon through Weapon ID
 	 * 
@@ -202,7 +207,7 @@ public class Player {
 	 */
 	public void equipWeapon(String weaponID) {
 		if (weaponID == null) {
-			throw new IllegalArgumentException("theWeapon cannot be null");
+			throw new IllegalArgumentException("weaponID cannot be null");
 		}
 		this.subtractEquipmentStats(this.equipmentManager.getWeapon());
 		this.equipmentManager.equipWeapon(weaponID);
@@ -211,26 +216,120 @@ public class Player {
 	}
 	
 	/**
-	 * Helper method that adds the stats of the given
-	 * 	Equipment object to the player.
+	 * Unequips the Player's Weapon
 	 * 
-	 * @param theEquipment 	Equipment to gather stats from
+	 * @precondition 	none
 	 * 
-	 * @precondition 		theEquipment != null
-	 * 
-	 * @postcondition 		Player stats are altered from the Equipment
+	 * @postcondition 	Weapon and stats are updated
 	 */
-	private void addEquipmentStats(Equipment theEquipment) {
-		if (theEquipment == null) {
-			throw new IllegalArgumentException("theEquipment cannot be null");
+	public void unequipWeapon() {
+		this.weaponID = "wep0";
+		this.subtractEquipmentStats(this.equipmentManager.getWeapon());
+		this.equipmentManager.equipWeapon("wep0");
+		this.update();
+	}
+
+	/**
+	 * Equips a specified Armor through Armor ID
+	 * 
+	 * @param armorID 	String containing Armor ID
+	 * 
+	 * @precondition 	armorID != null
+	 * 
+	 * @postcondition 	Armor and stats are updated
+	 */
+	public void equipArmor(String armorID) {
+		if (armorID == null) {
+			throw new IllegalArgumentException("armorID cannot be null");
 		}
-		this.hp += theEquipment.getHp();
-		this.mp += theEquipment.getMp();
-		this.strength += theEquipment.getStrength();
-		this.dexterity += theEquipment.getDexterity();
-		this.intellect += theEquipment.getIntellect();
-		this.defense += theEquipment.getDefense();
-		this.luck += theEquipment.getLuck();
+		this.subtractEquipmentStats(this.equipmentManager.getArmor());
+		this.equipmentManager.equipArmor(armorID);
+		this.addEquipmentStats(this.equipmentManager.getArmor());
+		this.update();
+	}
+	
+	/**
+	 * Unequips the Player's Armor
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @postcondition 	Armor and stats are updated
+	 */
+	public void unequipArmor() {
+		this.armorID = "arm0";
+		this.subtractEquipmentStats(this.equipmentManager.getArmor());
+		this.equipmentManager.equipArmor("arm0");
+		this.update();
+	}
+
+	/**
+	 * Equips a specified Accessory through Accessory ID
+	 * 	(equips to Accessory1)
+	 * 
+	 * @param accessoryID 	String containing Armor ID
+	 * 
+	 * @precondition 		accessoryID != null
+	 * 
+	 * @postcondition 		Accessory1 and stats are updated
+	 */
+	public void equipAccessory1(String accessoryID) {
+		if (accessoryID == null) {
+			throw new IllegalArgumentException("accessoryID cannot be null");
+		}
+		this.subtractEquipmentStats(this.equipmentManager.getAccessory1());
+		this.equipmentManager.equipAccessory1(accessoryID);
+		this.addEquipmentStats(this.equipmentManager.getAccessory1());
+		this.update();
+	}
+	
+	/**
+	 * Unequips the Player's Accessory
+	 * 	(from Accessory1)
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @postcondition 	Accessory1 and stats are updated
+	 */
+	public void unequipAccessory1() {
+		this.accessory1ID = "acc0";
+		this.subtractEquipmentStats(this.equipmentManager.getAccessory1());
+		this.equipmentManager.equipAccessory1("acc0");
+		this.update();
+	}
+
+	/**
+	 * Equips a specified Accessory through Accessory ID
+	 * 	(equips to Accessory2)
+	 * 
+	 * @param accessoryID 	String containing Armor ID
+	 * 
+	 * @precondition 		accessoryID != null
+	 * 
+	 * @postcondition 		Accessory2 and stats are updated
+	 */
+	public void equipAccessory2(String accessoryID) {
+		if (accessoryID == null) {
+			throw new IllegalArgumentException("accessoryID cannot be null");
+		}
+		this.subtractEquipmentStats(this.equipmentManager.getAccessory2());
+		this.equipmentManager.equipAccessory2(accessoryID);
+		this.addEquipmentStats(this.equipmentManager.getAccessory2());
+		this.update();
+	}
+	
+	/**
+	 * Unequips the Player's Accessory
+	 * 	(from Accessory2)
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @postcondition 	Accessory2 and stats are updated
+	 */
+	public void unequipAccessory2() {
+		this.accessory2ID = "acc0";
+		this.subtractEquipmentStats(this.equipmentManager.getAccessory2());
+		this.equipmentManager.equipAccessory2("acc0");
+		this.update();
 	}
 	
 	/**
@@ -244,6 +343,11 @@ public class Player {
 	 * @postcondition 		Player stats are altered from the Equipment
 	 */
 	private void subtractEquipmentStats(Equipment theEquipment) {
+		if (theEquipment == null) {
+			throw new IllegalArgumentException("theEquipment cannot be null."
+					+ "\nThis exception usually means that the the equipment trying to be"
+					+ "\nreferenced had a bad ID during the data retrieval phase but somehow wasn't caught.");
+		}
 		this.hp -= theEquipment.getHp();
 		this.mp -= theEquipment.getMp();
 		this.strength -= theEquipment.getStrength();
@@ -251,6 +355,31 @@ public class Player {
 		this.intellect -= theEquipment.getIntellect();
 		this.defense -= theEquipment.getDefense();
 		this.luck -= theEquipment.getLuck();
+	}
+
+	/**
+	 * Helper method that adds the stats of the given
+	 * 	Equipment object to the player.
+	 * 
+	 * @param theEquipment 	Equipment to gather stats from
+	 * 
+	 * @precondition 		theEquipment != null
+	 * 
+	 * @postcondition 		Player stats are altered from the Equipment
+	 */
+	private void addEquipmentStats(Equipment theEquipment) {
+		if (theEquipment == null) {
+			throw new IllegalArgumentException("theEquipment cannot be null."
+					+ "\nThis exception usually means that the the equipment trying to be"
+					+ "\nreferenced had a bad ID during the data retrieval phase but somehow wasn't caught.");
+		}
+		this.hp += theEquipment.getHp();
+		this.mp += theEquipment.getMp();
+		this.strength += theEquipment.getStrength();
+		this.dexterity += theEquipment.getDexterity();
+		this.intellect += theEquipment.getIntellect();
+		this.defense += theEquipment.getDefense();
+		this.luck += theEquipment.getLuck();
 	}
 	
 	/**

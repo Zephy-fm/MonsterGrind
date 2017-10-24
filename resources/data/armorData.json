@@ -107,7 +107,7 @@
 	"arm7" : {
 		"id" : "arm7",
 		"name" : "Star Speckled Robe",
-		"description" : "Robe that look to sparkle like stars!",
+		"description" : "Robe that looks to sparkle like stars!",
 		"hp" : 15,
 		"mp" : 40,
 		"strength" : 0,

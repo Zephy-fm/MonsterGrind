@@ -53,6 +53,41 @@ public class EquipmentManager {
 	}
 	
 	/**
+	 * Gets the Armor object and returns it
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @return			Armor contained in the EquipmentManager
+	 */
+	public Armor getArmor() {
+		return this.armor;
+	}
+	
+	/**
+	 * Gets the Accessory object and returns it
+	 * 	(from accessory1)
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @return			Accessory contained in the EquipmentManager
+	 */
+	public Accessory getAccessory1() {
+		return this.accessory1;
+	}
+	
+	/**
+	 * Gets the Accessory object and returns it
+	 * 	(from accessory2)
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @return			Accessory contained in the EquipmentManager
+	 */
+	public Accessory getAccessory2() {
+		return this.accessory2;
+	}
+	
+	/**
 	 * Equips a Weapon provided from the Weapon ID
 	 * 
 	 * @param weaponID 	String containing the Weapon ID
@@ -195,7 +230,8 @@ public class EquipmentManager {
 	public int getAttackPower() {
 		int attackDamageCalc = this.weapon.getAttackPower();
 		attackDamageCalc += this.accessory1.getAttackPower();
-		return attackDamageCalc + this.accessory2.getAttackPower();
+		attackDamageCalc += this.accessory2.getAttackPower();
+		return attackDamageCalc;
 	}
 	
 	/**
@@ -209,7 +245,22 @@ public class EquipmentManager {
 	public int getMagicPower() {
 		int magicDamageCalc = this.weapon.getMagicPower();
 		magicDamageCalc += this.accessory1.getMagicPower();
-		return magicDamageCalc + this.accessory2.getMagicPower();
+		magicDamageCalc += this.accessory2.getMagicPower();
+		return magicDamageCalc;
+	}
+	
+	/**
+	 * Calculates the total magic power provided from stat
+	 * 	all of the Equipment in the EquipmentManager
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @return			int containing total magic power
+	 */
+	public int getCriticalChance() {
+		int criticalChanceCalc = this.accessory1.getCriticalChance();
+		criticalChanceCalc += this.accessory2.getCriticalChance();
+		return criticalChanceCalc;
 	}
 	
 	/**

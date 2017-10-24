@@ -14,7 +14,7 @@
 	"enc1" : {
 		"id" : "enc1",
 		"name" : "Magic Residue",
-		"description" : "50% chance to regenerate 5% of MP, and deal 3 bonus damage attacking.",
+		"description" : "50% chance to regenerate 5% of MP, and deal 3 bonus damage when attacking.",
 		"chance" : 0.50,
 		"bonusDamageFlat" : 3,
 		"bonusDamageMultiplier" : 1.00,
@@ -38,7 +38,7 @@
 	"enc3" : {
 		"id" : "enc3",
 		"name" : "Wreckless Abondon",
-		"description" : "50% chance to do tripple damage when attacking, but suffer 15% of your HP.",
+		"description" : "50% chance to do tripple damage when attacking, but suffer 15% of your HP when attacking.",
 		"chance": 0.50,
 		"bonusDamageFlat" : 0,
 		"bonusDamageMultiplier" : 3.00,
@@ -50,7 +50,7 @@
 	"enc4" : {
 		"id" : "enc4",
 		"name" : "Wrath of Argus",
-		"description" : "100% chance to regenrate 20% of HP, and do 50% extra damage when attacking.",
+		"description" : "100% chance to regenrate 20% of HP, and do 150% damage when attacking.",
 		"chance": 1.00,
 		"bonusDamageFlat" : 0,
 		"bonusDamageMultiplier" : 1.50,
@@ -61,14 +61,14 @@
 	},
 	"enc5" : {
 		"id" : "enc5",
-		"name" : "Pantheon's Embrace",
-		"description" : "100% chance to regenerate 100% of HP, regenerate 100% of MP, and inflict 500% damage when attacking.",
+		"name" : "Sharp",
+		"description" : "100% chance to deal +5 damage when attacking.",
 		"chance": 1.00,
-		"bonusDamageFlat" : 0,
-		"bonusDamageMultiplier" : 5.00,
-		"heal" : 1.00,
+		"bonusDamageFlat" : 5,
+		"bonusDamageMultiplier" : 1.00,
+		"heal" : 0.00,
 		"selfDamage" : 0.00,
-		"mpReturn" : 1.00,
+		"mpReturn" : 0.00,
 		"mpBurn" : 0.00
 	},
 	"enc6" : {
@@ -121,7 +121,7 @@
 	},
 	"enc10" : {
 		"id" : "enc10",
-		"name" : "Reinforce",
+		"name" : "Reinforced",
 		"description" : "100% chance to deal 110% damage when attacking.",
 		"chance": 1.00,
 		"bonusDamageFlat" : 0,
@@ -141,6 +141,18 @@
 		"heal" : 0.00,
 		"selfDamage" : 0.00,
 		"mpReturn" : 0.30,
+		"mpBurn" : 0.00
+	},
+	"enc666" : {
+		"id" : "enc666",
+		"name" : "Pantheon's Embrace",
+		"description" : "100% chance to regenerate 100% of HP, regenerate 100% of MP, and inflict 500% damage when attacking.",
+		"chance": 1.00,
+		"bonusDamageFlat" : 0,
+		"bonusDamageMultiplier" : 5.00,
+		"heal" : 1.00,
+		"selfDamage" : 0.00,
+		"mpReturn" : 1.00,
 		"mpBurn" : 0.00
 	}
 }

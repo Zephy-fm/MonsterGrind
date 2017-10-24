@@ -1,5 +1,7 @@
 package model;
 
+import view.ApplicationController;
+
 /**
  * Accessory includes basic stats found inside the 
  * 	Equipment superclass.
@@ -79,6 +81,8 @@ public class Accessory extends Equipment {
 				+ "\n->defense: " + super.getDefense()
 				+ "\n->luck: " + super.getLuck()
 				+ "\n->enchant: " + super.getEnchantID()
+				+ "\n--->enchant name: " + ApplicationController.GAMEDATA.getEnchant(super.getEnchantID()).getName()
+				+ "\n--->enchant description: " + ApplicationController.GAMEDATA.getEnchant(super.getEnchantID()).getDescription()
 				+ "\n->sell price: " + super.getSellPrice()
 				+ "\n->buy price: " + super.getBuyPrice()
 				+ "\n->attack damage: " + this.attackPower

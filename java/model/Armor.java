@@ -1,17 +1,19 @@
 package model;
 
+import view.ApplicationController;
+
 /**
  * Armor includes basic stats found inside the
  * 	Equipment superclass.
  * 
  * @author frankminyon
  *
- * @version 10/19/17
+ * @version 10/24/17
  */
 public class Armor extends Equipment {
 	
 	/**
-	 * Creats Armor with default values
+	 * Creates Armor with default values
 	 * 
 	 * @precondition 	none
 	 * 
@@ -31,7 +33,7 @@ public class Armor extends Equipment {
 	 * @return 			String containing Armor description
 	 */
 	public String toString() {
-		return "Weapon object with the following attributes:"
+		return "Armor object with the following attributes:"
 				+ "\n->id: " + super.getId()
 				+ "\n->name: " + super.getName()
 				+ "\n->description: " + super.getDescription()
@@ -43,6 +45,8 @@ public class Armor extends Equipment {
 				+ "\n->defense: " + super.getDefense()
 				+ "\n->luck: " + super.getLuck()
 				+ "\n->enchant: " + super.getEnchantID()
+				+ "\n--->enchant name: " + ApplicationController.GAMEDATA.getEnchant(super.getEnchantID()).getName()
+				+ "\n--->enchant description: " + ApplicationController.GAMEDATA.getEnchant(super.getEnchantID()).getDescription()
 				+ "\n->sell price: " + super.getSellPrice()
 				+ "\n->buy price: " + super.getBuyPrice();
 	}

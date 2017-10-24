@@ -21,7 +21,7 @@
 	"wep1" : {
 		"id" : "wep1",
 		"name" : "Dull Sword",
-		"description" : "A plain, dull sword. Could possible be a large butterknife.",
+		"description" : "A plain, dull sword. Could possibly be a large butterknife.",
 		"hp" : 0,
 		"mp" : 0,
 		"strength" : 0,
@@ -73,12 +73,12 @@
 		"attackPower" : 2,
 		"magicPower" : 0,
 		"attackType" : "physical",
-		"attackMehod" : "stabs"
+		"attackMethod" : "stabs"
 	},
 	"wep4" : {
 		"id" : "wep4",
 		"name" : "Quick Spellblade",
-		"description" : "Sharp... and magical! What a lovely combination",
+		"description" : "Sharp... and magical! What a lovely combination!",
 		"hp" : 5,
 		"mp" : 5,
 		"strength" : 2,
@@ -86,13 +86,13 @@
 		"intellect" : 2,
 		"defense" : 0,
 		"luck" : 0,
-		"enchant" : "spc1",
+		"enchant" : "enc1",
 		"sellPrice" : 50,
 		"buyPrice" : 150,
 		"attackPower" : 2,
 		"magicPower" : 2,
 		"attackType" : "physical",
-		"attackMehod" : "slashes"
+		"attackMethod" : "slashes"
 	},
 	"wep5" : {
 		"id" : "wep5",
@@ -135,7 +135,7 @@
 	"wep7" : {
 		"id" : "wep7",
 		"name" : "Brass Knuckles",
-		"description" : "Painful accessory for the hands. You might even use both of them!",
+		"description" : "Painful weapon for the hands. You might even use both of them!",
 		"hp" : 15,
 		"mp" : 0,
 		"strength" : 0,
@@ -154,7 +154,7 @@
 	"wep666" : {
 		"id" : "wep666",
 		"name" : "Gorshalach",
-		"description" : "A blade torn from fallen Titans.",
+		"description" : "A blade, torn from the fallen Dark Titan.",
 		"hp" : 6666,
 		"mp" : 6666,
 		"strength" :6666,
@@ -162,7 +162,7 @@
 		"intellect" : 6666,
 		"defense" : 6666,
 		"luck" : 6666,
-		"enchant" : "enc5",
+		"enchant" : "enc666",
 		"sellPrice" : 1,
 		"buyPrice" : 1,
 		"attackPower" : 6666,
