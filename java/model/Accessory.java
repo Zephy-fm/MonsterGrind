@@ -9,6 +9,8 @@ package model;
  * @version 10/24/17
  */
 public class Accessory extends Equipment {
+	private int attackPower;
+	private int magicPower;
 
 	/**
 	 * Creates an Accessory with default values
@@ -21,6 +23,28 @@ public class Accessory extends Equipment {
 	 */
 	public Accessory() {
 		return;
+	}
+	
+	/**
+	 * Gets the Accessory's attack power and returns it
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @return 			int containing Accessory's attack power
+	 */
+	public int getAttackPower() {
+		return this.attackPower;
+	}
+	
+	/**
+	 * Gets the Accessory's magic power and returns it
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @return 			int containing Accessory's magic power
+	 */
+	public int getMagicPower() {
+		return this.magicPower;
 	}
 	
 	/**
@@ -44,7 +68,9 @@ public class Accessory extends Equipment {
 				+ "\n->luck: " + super.getLuck()
 				+ "\n->enchant: " + super.getEnchantID()
 				+ "\n->sell price: " + super.getSellPrice()
-				+ "\n->buy price: " + super.getBuyPrice();
+				+ "\n->buy price: " + super.getBuyPrice()
+				+ "\n->attack damage: " + this.attackPower
+				+ "\n->spell damage: " + this.magicPower;
 	}
 	
 }

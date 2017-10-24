@@ -12,7 +12,9 @@
 		"luck" : 0,
 		"enchant" : "enc0",
 		"sellPrice" : 0,
-		"buyPrice" : 0
+		"buyPrice" : 0,
+		"attackPower" : 0,
+		"magicPower" : 0
 	},
 	"acc1" : {
 		"id" : "acc1",
@@ -27,7 +29,9 @@
 		"luck" : 0,
 		"enchant" : "enc0",
 		"sellPrice" : 300,
-		"buyPrice" : 1000
+		"buyPrice" : 1000,
+		"attackPower" : 0,
+		"magicPower" : 0
 	},
 	"acc2" : {
 		"id" : "acc2",
@@ -42,7 +46,9 @@
 		"luck" : 0,
 		"enchant" : "enc0",
 		"sellPrice" : 300,
-		"buyPrice" : 1000
+		"buyPrice" : 1000,
+		"attackPower" : 0,
+		"magicPower" : 0
 	},
 	"acc3" : {
 		"id" : "acc3",
@@ -57,7 +63,9 @@
 		"luck" : 0,
 		"enchant" : "enc0",
 		"sellPrice" : 300,
-		"buyPrice" : 1000
+		"buyPrice" : 1000,
+		"attackPower" : 0,
+		"magicPower" : 0
 	},
 	"acc4" : {
 		"id" : "acc4",
@@ -72,7 +80,9 @@
 		"luck" : 0,
 		"enchant" : "enc0",
 		"sellPrice" : 300,
-		"buyPrice" : 1000
+		"buyPrice" : 1000,
+		"attackPower" : 0,
+		"magicPower" : 0
 	},
 	"acc5" : {
 		"id" : "acc1",
@@ -87,6 +97,8 @@
 		"luck" : 5,
 		"enchant" : "enc0",
 		"sellPrice" : 300,
-		"buyPrice" : 1000
+		"buyPrice" : 1000,
+		"attackPower" : 0,
+		"magicPower" : 0
 	}
 }
