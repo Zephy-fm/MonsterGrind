@@ -16,7 +16,7 @@ import com.google.gson.JsonObject;
  * 
  * @author frankminyon
  *
- * @version 10/19/17
+ * @version 10/24/17
  */
 public class JSONDataController {
 	private Reader playerData;
@@ -24,11 +24,13 @@ public class JSONDataController {
 	private Reader weaponData;
 	private Reader enchantData;
 	private Reader armorData;
+	private Reader accessoryData;
 	
 	private HashMap<String, Weapon> weaponList;
 	private HashMap<Integer, Level> levelList;
 	private HashMap<String, Enchant> enchantList;
 	private HashMap<String, Armor> armorList;
+	private HashMap<String, Accessory> accessoryList;
 	
 	/**
 	 * Prepares all data lists
@@ -44,6 +46,7 @@ public class JSONDataController {
 			this.levelData = new FileReader("resources/data/levelData.json");
 			this.enchantData = new FileReader("resources/data/enchantData.json");
 			this.armorData = new FileReader("resources/data/armorData.json");
+			this.accessoryData = new FileReader("resources/data/accessoryData.json");
 		} catch (FileNotFoundException error) {
 			error.printStackTrace();
 		}
@@ -51,6 +54,7 @@ public class JSONDataController {
 		this.levelList = new HashMap<Integer, Level>();
 		this.enchantList = new HashMap<String, Enchant>();
 		this.armorList = new HashMap<String, Armor>();
+		this.accessoryList = new HashMap<String, Accessory>();
 		
 		this.loadAllData();
 	}
@@ -68,9 +72,8 @@ public class JSONDataController {
 		this.parseLevels();
 		this.parseEnchants();
 		this.parseArmor();
+		this.parseAccessory();
 	}
-	
-	
 
 	/**
 	 * Loads a Player from the initiated Player file
@@ -196,7 +199,7 @@ public class JSONDataController {
 	 * 
 	 * @precondition 	none
 	 * 
-	 * @postcondition 	Enchant list size > 0
+	 * @postcondition 	Armor list size > 0
 	 */
 	private void parseArmor() {
 		Gson gson = new Gson();
@@ -223,6 +226,41 @@ public class JSONDataController {
 			throw new IllegalArgumentException("Cannot add null armor to the game's armor list");
 		}
 		this.armorList.put(theArmor.getId(), theArmor);
+	}
+	
+	/**
+	 * This method goes through the loaded Accessory data and 
+	 * 	parses all the Accessories into Accessory objects
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @postcondition 	Accessory list size > 0
+	 */
+	private void parseAccessory() {
+		Gson gson = new Gson();
+		JsonObject accessoryTree = gson.fromJson(this.accessoryData, JsonObject.class);
+		for (Map.Entry<String, JsonElement> current : accessoryTree.entrySet()) {
+			JsonObject accessoryArray = current.getValue().getAsJsonObject();
+			Accessory parsedAccessory = gson.fromJson(accessoryArray, Accessory.class);
+			this.addAccessory(parsedAccessory);
+		}
+	}
+	
+	/**
+	 * Verifies a parsed Accessory is initiated correctly and
+	 * 	adds it to the game's Accessory list
+	 * 
+	 * @param theAccessory	Accessory to verify is a valid Armor
+	 * 
+	 * @precondition 	theAccessory != null
+	 * 
+	 * @postcondition 	Accessory list size += 1
+	 */
+	private void addAccessory(Accessory theAccessory) {
+		if (theAccessory == null) {
+			throw new IllegalArgumentException("Cannot add null accessory to the game's accessory list");
+		}
+		this.accessoryList.put(theAccessory.getId(), theAccessory);
 	}
 
 	/**
@@ -290,6 +328,22 @@ public class JSONDataController {
 			throw new IllegalArgumentException("armorID cannot be null");
 		}
 		return this.armorList.get(armorID);
+	}
+
+	/**
+	 * Gets an Accessory based on the Accessory id specified
+	 * 
+	 * @param accessoryID 		String containing Accessory id
+	 * 
+	 * @precondition 		accessoryID != null
+	 * 
+	 * @return 				Accessory with specified Accessory id
+	 */
+	public Accessory getAccessory(String accessoryID) {
+		if (accessoryID == null) {
+			throw new IllegalArgumentException("accessoryID cannot be null");
+		}
+		return this.accessoryList.get(accessoryID);
 	}
 	
 	/**
