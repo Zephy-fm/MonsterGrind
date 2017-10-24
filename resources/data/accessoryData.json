@@ -14,7 +14,8 @@
 		"sellPrice" : 0,
 		"buyPrice" : 0,
 		"attackPower" : 0,
-		"magicPower" : 0
+		"magicPower" : 0,
+		"criticalChance" : 0
 	},
 	"acc1" : {
 		"id" : "acc1",
@@ -31,7 +32,8 @@
 		"sellPrice" : 300,
 		"buyPrice" : 1000,
 		"attackPower" : 0,
-		"magicPower" : 0
+		"magicPower" : 0,
+		"criticalChance" : 0
 	},
 	"acc2" : {
 		"id" : "acc2",
@@ -48,7 +50,8 @@
 		"sellPrice" : 300,
 		"buyPrice" : 1000,
 		"attackPower" : 0,
-		"magicPower" : 0
+		"magicPower" : 0,
+		"criticalChance" : 0
 	},
 	"acc3" : {
 		"id" : "acc3",
@@ -65,7 +68,8 @@
 		"sellPrice" : 300,
 		"buyPrice" : 1000,
 		"attackPower" : 0,
-		"magicPower" : 0
+		"magicPower" : 0,
+		"criticalChance" : 0
 	},
 	"acc4" : {
 		"id" : "acc4",
@@ -82,7 +86,8 @@
 		"sellPrice" : 300,
 		"buyPrice" : 1000,
 		"attackPower" : 0,
-		"magicPower" : 0
+		"magicPower" : 0,
+		"criticalChance" : 0
 	},
 	"acc5" : {
 		"id" : "acc1",
@@ -99,6 +104,7 @@
 		"sellPrice" : 300,
 		"buyPrice" : 1000,
 		"attackPower" : 0,
-		"magicPower" : 0
+		"magicPower" : 0,
+		"criticalChance" : 0
 	}
 }

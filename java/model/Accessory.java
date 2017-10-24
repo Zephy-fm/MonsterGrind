@@ -11,6 +11,7 @@ package model;
 public class Accessory extends Equipment {
 	private int attackPower;
 	private int magicPower;
+	private int criticalChance;
 
 	/**
 	 * Creates an Accessory with default values
@@ -48,6 +49,17 @@ public class Accessory extends Equipment {
 	}
 	
 	/**
+	 * Gets the Accessory's critical chance and returns it
+	 * 
+	 * @precondition 	none
+	 * 
+	 * @return 			int containing Accessory's critical chance
+	 */
+	public int getCriticalChance() {
+		return this.criticalChance;
+	}
+	
+	/**
 	 * Generates a description of the Accessory and returns it
 	 * 
 	 * @precondition 	none
@@ -70,7 +82,8 @@ public class Accessory extends Equipment {
 				+ "\n->sell price: " + super.getSellPrice()
 				+ "\n->buy price: " + super.getBuyPrice()
 				+ "\n->attack damage: " + this.attackPower
-				+ "\n->spell damage: " + this.magicPower;
+				+ "\n->spell damage: " + this.magicPower
+				+ "\n->critical chance: " + this.criticalChance;
 	}
 	
 }
