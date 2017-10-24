@@ -1,7 +1,5 @@
 package controller;
 
-import view.ApplicationController;
-
 /**
  * Driver contains the main() method and runs the GameController
  * 

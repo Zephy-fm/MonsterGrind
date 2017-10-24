@@ -1,6 +1,6 @@
 package model;
 
-import view.ApplicationController;
+import controller.ApplicationController;
 
 /**
  * Armor includes basic stats found inside the

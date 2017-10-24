@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-import view.ApplicationController;
+import controller.ApplicationController;
 
 /**
  * EquipmentManager handles the stats and effects

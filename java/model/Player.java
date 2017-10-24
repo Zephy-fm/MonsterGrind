@@ -1,6 +1,6 @@
 package model;
 
-import view.ApplicationController;
+import controller.ApplicationController;
 
 /**
  * Player keeps track of all Player data.

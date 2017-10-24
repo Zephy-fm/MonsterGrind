@@ -1,6 +1,6 @@
 package model;
 
-import view.ApplicationController;
+import controller.ApplicationController;
 
 /**
  * Weapons include bonus addition stats, such as
