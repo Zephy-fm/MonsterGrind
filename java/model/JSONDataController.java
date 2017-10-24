@@ -279,7 +279,12 @@ public class JSONDataController {
 		if (levelNumber > 100) {
 			throw new IllegalArgumentException("levelNumber must not be over 100");
 		}
-		return this.levelList.get(levelNumber);
+		Level fetchedLevel = this.levelList.get(levelNumber);
+		if (fetchedLevel == null) {
+			throw new NullPointerException("the provided levelNumber could not find a corresponding Level object."
+					+ "\nPlease check the following levelNumber and ensure it is correct: " + levelNumber);
+		}
+		return fetchedLevel;
 	}
 
 	/**
@@ -295,7 +300,12 @@ public class JSONDataController {
 		if (weaponID == null) {
 			throw new IllegalArgumentException("weaponID cannot be null");
 		}
-		return this.weaponList.get(weaponID);
+		Weapon fetchedWeapon = this.weaponList.get(weaponID);
+		if (fetchedWeapon == null) {
+			throw new NullPointerException("the provided weaponID could not find a corresponding Weapon object."
+					+ "\nPlease check the following weaponID and ensure it is correct: " + weaponID);
+		}
+		return fetchedWeapon;
 	}
 
 	/**
@@ -311,7 +321,12 @@ public class JSONDataController {
 		if (enchantID == null) {
 			throw new IllegalArgumentException("enchantID cannot be null");
 		}
-		return this.enchantList.get(enchantID);
+		Enchant fetchedEnchant = this.enchantList.get(enchantID);
+		if (fetchedEnchant == null) {
+			throw new NullPointerException("the provided enchantID could not find a corresponding Enchant object."
+					+ "\nPlease check the following enchantID and ensure it is correct: " + enchantID);
+		}
+		return fetchedEnchant;
 	}
 
 	/**
@@ -327,7 +342,12 @@ public class JSONDataController {
 		if (armorID == null) {
 			throw new IllegalArgumentException("armorID cannot be null");
 		}
-		return this.armorList.get(armorID);
+		Armor fetchedArmor = this.armorList.get(armorID);
+		if (fetchedArmor == null) {
+			throw new NullPointerException("the provided armorID could not find a corresponding Armor object."
+					+ "\nPlease check the following armorID and ensure it is correct: " + armorID);
+		}
+		return fetchedArmor;
 	}
 
 	/**
@@ -343,7 +363,12 @@ public class JSONDataController {
 		if (accessoryID == null) {
 			throw new IllegalArgumentException("accessoryID cannot be null");
 		}
-		return this.accessoryList.get(accessoryID);
+		Accessory fetchedAccessory = this.accessoryList.get(accessoryID);
+		if (fetchedAccessory == null) {
+			throw new NullPointerException("the provided accessoryID could not find a corresponding Accessory object."
+					+ "\nPlease check the following accessoryID and ensure it is correct: " + accessoryID);
+		}
+		return fetchedAccessory;
 	}
 	
 	/**
