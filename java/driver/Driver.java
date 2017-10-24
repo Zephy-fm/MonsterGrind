@@ -1,4 +1,6 @@
-package controller;
+package driver;
+
+import controller.ApplicationController;
 
 /**
  * Driver contains the main() method and runs the GameController

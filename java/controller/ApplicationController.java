@@ -39,16 +39,6 @@ public class ApplicationController {
 	 */
 	public void run() {
 		System.out.println(ApplicationController.GAMEDATA);
-		System.out.println("\n\nLets test our ability to add, equip, and unequip objects!");
-		
-		System.out.println("\nEquipping a accessory2 with the id of acc4!");
-		System.out.println(ApplicationController.GAMEDATA.getAccessory("acc4"));
-		this.thePlayer.equipAccessory2("acc4");
-		System.out.println("\nPlayer's new stats:");
-		System.out.println(this.thePlayer);
-		System.out.println("\nUnequipping the Player's accessory1:");
-		this.thePlayer.unequipAccessory2();
-		System.out.println(this.thePlayer);
 	}
 	
 }
