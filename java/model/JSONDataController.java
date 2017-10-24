@@ -358,7 +358,8 @@ public class JSONDataController {
 				+ "\n->weapon list size: " + this.weaponList.size()
 				+ "\n->level list size: " + this.levelList.size()
 				+ "\n->armor list size: " + this.armorList.size()
-				+ "\n->enchant list size: " + this.enchantList.size();
+				+ "\n->enchant list size: " + this.enchantList.size()
+				+ "\n->accessory list size: " + this.accessoryList.size();
 	}
 	
 }
